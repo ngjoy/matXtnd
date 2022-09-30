@@ -13,6 +13,10 @@
       "mat-xtnd": [
         "dist/mat-xtnd/mat-xtnd",
         "dist/mat-xtnd"
+      ],
+      "@matxtnd": [
+        "dist/mat-xtnd/mat-xtnd",
+        "dist/mat-xtnd"
       ]
     },
     "declaration": false,

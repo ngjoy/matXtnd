@@ -7,7 +7,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "build-lib": "ng build mat-xtnd --prod",
+    "build-lib": "ng build mat-xtnd",
+    "build-lib-prod": "ng build mat-xtnd --prod",
     "docs:json": "compodoc -p ./tsconfig.json -e json -d .",
     "storybook": "npm run docs:json && start-storybook -p 6006",
     "build-storybook": "npm run docs:json && build-storybook"

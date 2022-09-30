@@ -1,0 +1,35 @@
+import { Meta, Story, ArgsTable, Canvas  } from '@storybook/addon-docs';
+import { moduleMetadata } from '@storybook/angular';
+import { CommonModule } from '@angular/common';
+import { MaterialModule } from './modules/material/material.module';
+import { MatXtnLoadingButtonModule } from '@matxtnd'
+import { LoadingButtonComponent } from './examples/loading-button/loading-button.component';
+
+<Meta title="Example/LoadingButton" component={LoadingButtonComponent} decorators={[
+  moduleMetadata({
+    imports: [
+        CommonModule,
+        MaterialModule,
+        MatXtnLoadingButtonModule
+      ]
+  })
+]}
+parameters={{
+    viewMode: 'docs',
+    previewTabs: { 
+      canvas: { hidden: true } 
+     },
+  }}
+/>
+
+
+export const Template = (args) => ({
+   props: args
+});
+
+<Story 
+  name="Default" args={{ busy: true }}>
+  {Template.bind({})}
+</Story>
+
+<ArgsTable story="." />

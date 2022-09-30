@@ -3,5 +3,46 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "mat-xtnd": {
+      "projectType": "library",
+      "root": "projects/mat-xtnd",
+      "sourceRoot": "projects/mat-xtnd/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/mat-xtnd/tsconfig.lib.json",
+            "project": "projects/mat-xtnd/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/mat-xtnd/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/mat-xtnd/src/test.ts",
+            "tsConfig": "projects/mat-xtnd/tsconfig.spec.json",
+            "karmaConfig": "projects/mat-xtnd/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/mat-xtnd/tsconfig.lib.json",
+              "projects/mat-xtnd/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "mat-xtnd"
 }

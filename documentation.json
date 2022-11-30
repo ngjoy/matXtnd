@@ -17,9 +17,104 @@
     "injectables": [],
     "guards": [],
     "interceptors": [],
-    "classes": [],
+    "classes": [
+        {
+            "name": "AppPage",
+            "id": "class-AppPage-d83b95cb897fd7f1ecc7216a31a9167598810a902c9c43ec11b6a93965548994186b900fe348e64bdf35a97b36d2fdb26731097dc1738e7f73bc67d2d432a47c",
+            "file": "projects/integration/e2e/src/app.po.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "class",
+            "sourceCode": "import { browser, by, element } from 'protractor';\n\nexport class AppPage {\n  async navigateTo(): Promise<unknown> {\n    return browser.get(browser.baseUrl);\n  }\n\n  async getTitleText(): Promise<string> {\n    return element(by.css('app-root .content span')).getText();\n  }\n}\n",
+            "properties": [],
+            "methods": [
+                {
+                    "name": "getTitleText",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "Promise<string>",
+                    "typeParameters": [],
+                    "line": 8,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        131
+                    ]
+                },
+                {
+                    "name": "navigateTo",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "Promise<>",
+                    "typeParameters": [],
+                    "line": 4,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        131
+                    ]
+                }
+            ],
+            "indexSignatures": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "hostBindings": [],
+            "hostListeners": []
+        }
+    ],
     "directives": [],
     "components": [
+        {
+            "name": "AppComponent",
+            "id": "component-AppComponent-e6b37320bc9c593fa07c46b0e2e38f708d64328ec8152fa47c3c3a7f9d12f1b93e3da435a85f6b58183f0510b8d5eec65ea444bcb57b67a29364da484e122c1d",
+            "file": "projects/integration/src/app/app.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-root",
+            "styleUrls": [
+                "./app.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./app.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "title",
+                    "defaultValue": "'integration'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 9
+                }
+            ],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-root',\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.scss']\n})\nexport class AppComponent {\n  title = 'integration';\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./app.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "templateData": "\r\n<matxtnd-loading-button mat-raised-button [busy]=\"true\">\r\n  <matxtnd-loading-button-ready>\r\n    Update\r\n  </matxtnd-loading-button-ready>\r\n  <matxtnd-loading-button-busy>\r\n    Updating...\r\n  </matxtnd-loading-button-busy>\r\n</matxtnd-loading-button>\r\n"
+        },
         {
             "name": "ButtonComponent",
             "id": "component-ButtonComponent-4ef205c97a334c309aa4001c8ab4a6d9571dcae18d0e85aaf0d367467ab5d3a9f13ab3573726f1fcb409bc9b49894dadfb80b1bbe1b6ba7041455ad9d4922004",
@@ -262,12 +357,12 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@import '@angular/material/prebuilt-themes/deeppurple-amber.css';\r\n",
+                    "data": "@import '@angular/material/prebuilt-themes/deeppurple-amber.css';\r\n:host{\r\n@import '@angular/material/prebuilt-themes/deeppurple-amber.css';\r\n}\r\n",
                     "styleUrl": "loading-button.component.scss"
                 }
             ],
             "stylesData": "",
-            "templateData": "<matxtnd-loading-button [busy]=\"busy\">\r\n  <matxtnd-loading-button-ready>\r\n    Update\r\n  </matxtnd-loading-button-ready>\r\n  <matxtnd-loading-button-ready>\r\n    Updating...\r\n  </matxtnd-loading-button-ready>\r\n</matxtnd-loading-button>\r\n\r\n\r\n<button mat-raised-button color=\"primary\">Primary</button>\r\n\r\n\r\n<mat-spinner></mat-spinner>\r\n"
+            "templateData": "<matxtnd-loading-button mat-raised-button [busy]=\"busy\">\r\n  <matxtnd-loading-button-ready>\r\n    Update\r\n  </matxtnd-loading-button-ready>\r\n  <matxtnd-loading-button-busy>\r\n    Updating...\r\n  </matxtnd-loading-button-busy>\r\n</matxtnd-loading-button>\r\n\r\n\r\n<button mat-raised-button color=\"primary\">Primary</button>\r\n\r\n\r\n<mat-spinner color=\"primary\"></mat-spinner>\r\n"
         },
         {
             "name": "MatXtndBusyComponent",
@@ -506,7 +601,7 @@
                     }
                 ]
             },
-            "templateData": "<button color=\"primary\" [disabled]=\"busy || disabled\" (click)=\"click($event)\"\r\n        [ngClass]=\"additionalCssClass\"\r\n        mat-button\r\n        [attr.type]=\"buttonType\"\r\n        [color]=\"color\">\r\n\r\n  <ng-content></ng-content>\r\n</button>\r\n"
+            "templateData": "<button color=\"primary\" [disabled]=\"busy || disabled\" (click)=\"click($event)\"\r\n        [ngClass]=\"additionalCssClass\"\r\n        mat-button\r\n        [attr.type]=\"buttonType\"\r\n        [color]=\"color\">\r\n  <ng-content></ng-content>\r\n</button>\r\n"
         },
         {
             "name": "MatXtndReadyComponent",
@@ -676,6 +771,54 @@
     ],
     "modules": [
         {
+            "name": "AppModule",
+            "id": "module-AppModule-7d5d9906906a6123b3ee92267e0d963ac7530500b6f140b920823f14daa128aecf4f84b1f10aec4fbaf6ae51e934aefc3ba8ff04ba834e25f39fc8c378b8a5b4",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/integration/src/app/app.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { BrowserModule } from '@angular/platform-browser';\n\nimport { AppComponent } from './app.component';\nimport { MatXtndModule } from 'mat-xtnd';\n\n@NgModule({\n  declarations: [\n    AppComponent\n  ],\n  imports: [\n    BrowserModule,\n    MatXtndModule\n  ],\n  providers: [],\n  bootstrap: [AppComponent]\n})\nexport class AppModule { }\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "AppComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "MatXtndModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": [
+                        {
+                            "name": "AppComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
             "name": "MaterialModule",
             "id": "module-MaterialModule-ec875f2a3fdf93146523093864965ddb9c2285cfcf8084c052b39e056320db40c72937ff6381ddd58b2d6bb429335c074b2f6c5b5bdcb57b34ac9d5ae5b1ce15",
             "description": "",
@@ -828,11 +971,41 @@
                 "name": "context",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/integration/src/test.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
+            },
+            {
+                "name": "context",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/mat-xtnd/src/test.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
                 "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
+            },
+            {
+                "name": "environment",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/integration/src/environments/environment.prod.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\n  production: true\n}"
+            },
+            {
+                "name": "environment",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/integration/src/environments/environment.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\n  production: false\n}"
             },
             {
                 "name": "Large",
@@ -903,6 +1076,15 @@
                 "deprecationMessage": "",
                 "type": "",
                 "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "require",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/integration/src/test.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "literal type"
             },
             {
                 "name": "require",
@@ -1003,6 +1185,27 @@
                     "defaultValue": "[\r\n  CommonModule,\r\n  MatButtonModule,\r\n  MatCardModule,\r\n  MatDatepickerModule,\r\n  MatDialogModule,\r\n  MatCheckboxModule,\r\n  MatGridListModule,\r\n  MatIconModule,\r\n  MatInputModule,\r\n  MatListModule,\r\n  MatMenuModule,\r\n  MatNativeDateModule,\r\n  MatOptionModule,\r\n  MatSelectModule,\r\n  MatSidenavModule,\r\n  MatSlideToggleModule,\r\n  MatSnackBarModule,\r\n  MatToolbarModule,\r\n  MatProgressSpinnerModule,\r\n  MatBadgeModule,\r\n  MatTooltipModule,\r\n  MatChipsModule,\r\n  MatAutocompleteModule,\r\n  MatTableModule,\r\n  MatSortModule,\r\n  MatPaginatorModule,\r\n  MatExpansionModule,\r\n  MatTreeModule,\r\n  MatFormFieldModule,\r\n  MatSliderModule\r\n]"
                 }
             ],
+            "projects/integration/src/test.ts": [
+                {
+                    "name": "context",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/integration/src/test.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
+                },
+                {
+                    "name": "require",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/integration/src/test.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "literal type"
+                }
+            ],
             "projects/mat-xtnd/src/test.ts": [
                 {
                     "name": "context",
@@ -1022,6 +1225,30 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "literal type"
+                }
+            ],
+            "projects/integration/src/environments/environment.prod.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/integration/src/environments/environment.prod.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\n  production: true\n}"
+                }
+            ],
+            "projects/integration/src/environments/environment.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/integration/src/environments/environment.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\n  production: false\n}"
                 }
             ],
             "stories/Button.stories.ts": [
@@ -1184,9 +1411,67 @@
     },
     "routes": [],
     "coverage": {
-        "count": 5,
+        "count": 4,
         "status": "low",
         "files": [
+            {
+                "filePath": "projects/integration/e2e/src/app.po.ts",
+                "type": "class",
+                "linktype": "classe",
+                "name": "AppPage",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/integration/src/app/app.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "AppComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/integration/src/environments/environment.prod.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "environment",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/integration/src/environments/environment.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "environment",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/integration/src/test.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "context",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/integration/src/test.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "require",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
             {
                 "filePath": "projects/mat-xtnd/src/lib/loading-button/busy/busy.component.ts",
                 "type": "component",

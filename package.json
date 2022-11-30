@@ -11,7 +11,8 @@
     "build-lib-prod": "ng build mat-xtnd --prod",
     "docs:json": "compodoc -p ./tsconfig.json -e json -d .",
     "storybook": "npm run docs:json && start-storybook -p 6006",
-    "build-storybook": "npm run docs:json && build-storybook"
+    "build-storybook": "npm run docs:json && build-storybook",
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {

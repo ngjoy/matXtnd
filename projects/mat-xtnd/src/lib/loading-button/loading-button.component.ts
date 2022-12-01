@@ -1,4 +1,6 @@
+import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 import { Component, ElementRef, EventEmitter, Input, Output } from '@angular/core';
+import { ThemePalette } from '@angular/material/core';
 
 type LoadingBtnResponse = any;
 type ButtonTypes = "button" | "submit" | "reset";
@@ -18,15 +20,24 @@ const materialButtonAttrs = [
 })
 export class MatXtndLoadingButtonComponent {
 
+  private _busy = false;
+  private _disabled = false;
 
-  @Input() busy: boolean = false;
-  @Input() disabled: boolean = false;
+  @Input() color: ThemePalette = "primary";
 
-  @Output()
-  private submit: EventEmitter<LoadingBtnResponse> = new EventEmitter<LoadingBtnResponse>();
+  @Input() set busy(value: BooleanInput) {
+    this._busy = coerceBooleanProperty(value);
+  }
+  get busy() { return this._busy; }
+
+  @Input() set disabled(value: BooleanInput) {
+    this._disabled = coerceBooleanProperty(value);
+  }
+  get disabled() { return this._disabled; }
+
+  @Output() submit: EventEmitter<LoadingBtnResponse> = new EventEmitter<LoadingBtnResponse>();
 
   buttonType: ButtonTypes = "button";
-  color: string | null = "primary"
   additionalCssClass: string  = "";
 
   constructor(element: ElementRef) {
@@ -40,11 +51,6 @@ export class MatXtndLoadingButtonComponent {
 
     if (nativeEl.hasAttribute('type')) {
       this.buttonType = nativeEl.getAttribute('type') as ButtonTypes;
-
-    }
-
-    if (nativeEl.hasAttribute('color')) {
-      this.color = nativeEl.getAttribute('color')
     }
   }
 

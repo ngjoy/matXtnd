@@ -1,11 +1,21 @@
 {
   "name": "@ngjoy/mat-xtnd",
-  "version": "0.0.1",
+  "version": "11.0.1",
+  "author": "ngJoy",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ngjoy/matXtnd.git"
+  },
   "peerDependencies": {
     "@angular/common": "^11.2.14",
     "@angular/core": "^11.2.14",
     "@angular/material": "^11.2.14"
   },
+  "keywords": [
+    "angular",
+    "material"
+  ],
   "dependencies": {
     "tslib": "^2.0.0"
   }

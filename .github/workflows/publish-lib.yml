@@ -1,0 +1,31 @@
+name: Publish Lib CI
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - run: npm ci
+    - run: npm run build-lib-prod
+    - run: npm config set //registry.npmjs.org/:_authToken ${{ secrets.NPM_TOKEN }}
+    - name: Publish Ng package on NPM 📦
+      run: npm publish --access public
+      working-directory: dist/mat-xtnd
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

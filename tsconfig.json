@@ -17,6 +17,9 @@
       "@matxtnd": [
         "dist/mat-xtnd/mat-xtnd",
         "dist/mat-xtnd"
+      ],
+      "@matxtnd-source": [
+        "projects/mat-xtnd/src/lib"
       ]
     },
     "declaration": false,

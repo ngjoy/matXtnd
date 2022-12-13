@@ -1,0 +1,10 @@
+:host {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  .matxtnd-loading-message-content{
+      padding:20px;
+  }
+}

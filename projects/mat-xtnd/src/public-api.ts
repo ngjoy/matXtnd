@@ -3,4 +3,5 @@
  */
 
 export * from './lib/loading-button';
+export * from './lib/loading-message';
 export * from './lib/mat-xtnd.module';

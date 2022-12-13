@@ -1,12 +1,15 @@
 import { NgModule } from '@angular/core';
 import { MatXtnLoadingButtonModule } from './loading-button';
+import { MatXtnLoadingMessageModule } from './loading-message';
 
 @NgModule({
   imports: [
-    MatXtnLoadingButtonModule
+    MatXtnLoadingButtonModule,
+    MatXtnLoadingMessageModule
   ],
   exports: [
-    MatXtnLoadingButtonModule
+    MatXtnLoadingButtonModule,
+    MatXtnLoadingMessageModule
   ]
 })
 export class MatXtndModule { }

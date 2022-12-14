@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { MatXtndModule } from '../../../mat-xtnd/src/lib/mat-xtnd.module';
 
 import { AppComponent } from './app.component';
-import { MatXtndModule } from 'mat-xtnd';
 
 @NgModule({
   declarations: [

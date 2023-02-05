@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MatXtndSnackbarSuccessService } from '../../../mat-xtnd/src/lib/snackbar-success';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'integration';
+  constructor(private readonly snackbarSuccessStatus: MatXtndSnackbarSuccessService) { }
+
+  successSnackbar() {
+    this.snackbarSuccessStatus.Open('Activity Completed');
+  }
 }

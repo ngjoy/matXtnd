@@ -11,9 +11,9 @@ export class MatXtndSwooshAnimationComponent implements OnInit {
   private canvas: HTMLCanvasElement | undefined;
 
   @Input() color: string = this.matXtndThemeService.colors.primary;
-  @Input() speed: number = 5;
+  @Input() speed: number = 3;
   @Input() width: number = 35;
-  @Input('play-after') playAfter: number = 500;
+  @Input('play-after') playAfter: number = 250;
 
   constructor(
     private readonly element: ElementRef<HTMLElement>,

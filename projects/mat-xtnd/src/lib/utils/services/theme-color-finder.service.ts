@@ -2,14 +2,13 @@ import { Overlay } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
 import { DOCUMENT } from '@angular/common';
 import { Inject, Injectable } from '@angular/core';
-import { MatXtndThemeHelperComponent } from '../components/theme-helper/theme-helper.component';
+import { MatXtndThemeHelperComponent } from '../components';
 
 export type MatXtndMaterialColorType = "primary" | "accent" | "warn";
 export type MatXtndMaterialColorValueType = { [key in MatXtndMaterialColorType]: string }
 
-@Injectable({
-  providedIn: 'root'
-})
+/** @dynamic */
+@Injectable()
 export class MatXtndThemeColorFinderService {
 
   colors: MatXtndMaterialColorValueType = { primary: '', accent: '', warn: '' };

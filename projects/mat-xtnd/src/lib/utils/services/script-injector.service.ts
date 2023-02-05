@@ -2,9 +2,8 @@ import { DOCUMENT } from "@angular/common";
 import { Inject, Injectable, Renderer2, RendererFactory2 } from "@angular/core";
 import { Observable } from "rxjs";
 
-@Injectable({
-  providedIn: 'root'
-})
+/** @dynamic */
+@Injectable()
 export class MatXtndScriptInjectorService {
 
   readonly renderer2: Renderer2 = this.rendererFactory.createRenderer(null, null);

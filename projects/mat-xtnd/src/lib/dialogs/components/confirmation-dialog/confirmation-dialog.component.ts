@@ -8,6 +8,7 @@ export type MatXtndConfirmationDialogButtonLabelsType = { OK: string, CANCEL: st
 export type MatXtndConfirmationDialogParamsType = { title?: string, message: string, buttonLabels?: MatXtndConfirmationDialogButtonLabelsType }
 export type MatXtndConfirmationDialogParamsDataType = { title?: string, message: string, buttonLabels: MatXtndConfirmationDialogButtonLabelsType }
 
+/** @dynamic */
 @Component({
   selector: 'matxtnd-confirmation-dialog',
   templateUrl: 'confirmation-dialog.component.html',

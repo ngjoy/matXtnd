@@ -1,0 +1,27 @@
+:host {
+
+  .matxtnd-snackbar-success-container {
+    height: 25px;
+
+    .matxtnd-snackbar-success-signal {
+      display: inline-block;
+      position: absolute;
+      top: 16px;
+      left: 16px;
+    }
+
+    .matxtnd-snackbar-message {
+      padding: 10px;
+      position: absolute;
+      left: 50px;
+      top: 9px;
+      color: rgba(0,0,0,.7);
+    }
+  }
+}
+
+::ng-deep {
+  .matxtnd-snackbar-success-panel{
+      background-color:#fff;
+  }
+}

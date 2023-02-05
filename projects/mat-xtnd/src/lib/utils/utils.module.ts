@@ -1,4 +1,4 @@
-import { ApplicationRef, Inject, Injector, NgModule, Renderer2, ViewContainerRef } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatXtndThemeColorFinderService } from './services';

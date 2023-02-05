@@ -36,9 +36,9 @@ export class MatXtndThemeColorFinderService {
 
     if (primary && accent && warn) {
       this.colors = {
-        primary: getComputedStyle(primary).color,
-        accent: getComputedStyle(accent).color,
-        warn: getComputedStyle(warn).color
+        primary: getComputedStyle(primary).backgroundColor,
+        accent: getComputedStyle(accent).backgroundColor,
+        warn: getComputedStyle(warn).backgroundColor
       }
       /*console.log(this.colors);*/
     }

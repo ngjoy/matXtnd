@@ -1,4 +1,4 @@
-import { Component, AfterContentInit, OnInit, ElementRef, Input } from '@angular/core';
+import { Component, OnInit, ElementRef, Input } from '@angular/core';
 import { MatXtndThemeColorFinderService } from '../../../utils';
 
 @Component({
@@ -21,6 +21,7 @@ export class MatXtndSwooshAnimationComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    console.log(this.matXtndThemeService.colors.primary);
     this.canvas = document.createElement('canvas');
     const width = this.width;
     const height = width * 3.2;

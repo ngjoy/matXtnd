@@ -40,10 +40,8 @@ export class MatXtndThemeColorFinderService {
         accent: getComputedStyle(accent).backgroundColor,
         warn: getComputedStyle(warn).backgroundColor
       }
-      /*console.log(this.colors);*/
     }
     
-    /*console.log(primary, accent, warn);*/
   }
 
 

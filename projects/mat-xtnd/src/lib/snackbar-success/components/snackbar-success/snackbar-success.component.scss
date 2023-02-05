@@ -14,7 +14,14 @@
       padding: 10px;
       position: absolute;
       left: 50px;
-      top: 6px;
+      top: 9px;
+      color: rgba(0,0,0,.7);
     }
+  }
+}
+
+::ng-deep {
+  .matxtnd-snackbar-success-panel{
+      background-color:#fff;
   }
 }

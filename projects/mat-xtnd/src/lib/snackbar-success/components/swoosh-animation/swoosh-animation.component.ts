@@ -11,7 +11,7 @@ export class MatXtndSwooshAnimationComponent implements OnInit {
   private canvas: HTMLCanvasElement | undefined;
 
   @Input() color: string = this.matXtndThemeService.colors.primary;
-  @Input() speed: number = 6;
+  @Input() speed: number = 5;
   @Input() width: number = 35;
   @Input('play-after') playAfter: number = 500;
 
@@ -21,7 +21,6 @@ export class MatXtndSwooshAnimationComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log(this.matXtndThemeService.colors.primary);
     this.canvas = document.createElement('canvas');
     const width = this.width;
     const height = width * 3.2;

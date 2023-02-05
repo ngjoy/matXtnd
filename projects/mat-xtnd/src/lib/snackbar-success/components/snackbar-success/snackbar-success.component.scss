@@ -1,0 +1,20 @@
+:host {
+
+  .matxtnd-snackbar-success-container {
+    height: 25px;
+
+    .matxtnd-snackbar-success-signal {
+      display: inline-block;
+      position: absolute;
+      top: 16px;
+      left: 16px;
+    }
+
+    .matxtnd-snackbar-message {
+      padding: 10px;
+      position: absolute;
+      left: 50px;
+      top: 6px;
+    }
+  }
+}

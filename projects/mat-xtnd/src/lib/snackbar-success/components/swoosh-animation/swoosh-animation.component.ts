@@ -52,22 +52,26 @@ export class MatXtndSwooshAnimationComponent implements OnInit {
       ctx.strokeStyle = color;
 
       for (let i = start; i < mid; i++) {
-        var drawLeft = window.setTimeout(function () {
-          ctx.beginPath();
-          ctx.moveTo(start, start);
-          ctx.lineTo(leftX, leftY);
-          ctx.stroke();
+        const drawLeft = window.setTimeout(function () {
+          if (ctx) {
+            ctx.beginPath();
+            ctx.moveTo(start, start);
+            ctx.lineTo(leftX, leftY);
+            ctx.stroke();
+          }
           leftX++;
           leftY++;
         }, 1 + (i * animationSpeed) / 3);
       }
 
       for (let i = mid; i < end; i++) {
-        var drawRight = window.setTimeout(function () {
-          ctx.beginPath();
-          ctx.moveTo(leftX, leftY);
-          ctx.lineTo(rightX, rightY);
-          ctx.stroke();
+        const drawRight = window.setTimeout(function () {
+          if (ctx) {
+            ctx.beginPath();
+            ctx.moveTo(leftX, leftY);
+            ctx.lineTo(rightX, rightY);
+            ctx.stroke();
+          }
           rightX++;
           rightY--;
         }, 1 + (i * animationSpeed) / 3);

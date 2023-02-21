@@ -23,11 +23,15 @@ export class MatXtndConfirmationDialogComponent {
   ) { }
 
   ok() {
-    this.matDialogRef.close(MatXtndConfirmationDialogActionTypes.OK);
+    this.ngZone.run(() => {
+      this.matDialogRef.close(MatXtndConfirmationDialogActionTypes.OK);
+    });
   }
 
   cancel() {
-    this.matDialogRef.close(MatXtndConfirmationDialogActionTypes.CANCEL);
+    this.ngZone.run(() => {
+      this.matDialogRef.close(MatXtndConfirmationDialogActionTypes.CANCEL);
+    });
   }
 
 } 

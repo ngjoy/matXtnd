@@ -1,5 +1,5 @@
 # MatXtnd
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.14.
+Extending angular material components for fast development.
 
 

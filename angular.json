@@ -113,6 +113,24 @@
             }
           }
         },
+        "storybook": {
+          "builder": "@storybook/angular:start-storybook",
+          "options": {
+            "browserTarget": "integration:build",
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+            ]
+          }
+        },
+        "build-storybook": {
+          "builder": "@storybook/angular:build-storybook",
+          "options": {
+            "browserTarget": "integration:build",
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+            ]
+          }
+        },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {

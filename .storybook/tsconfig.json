@@ -13,6 +13,7 @@
   ],
   "include": [
     "../src/**/*",
+    "../stories/**/*",
     "../projects/**/*"
   ],
   "files": [

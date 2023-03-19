@@ -1,0 +1,46 @@
+import { Meta, Story, ArgsTable, Canvas  } from '@storybook/addon-docs';
+import { moduleMetadata } from '@storybook/angular';
+import { CommonModule } from '@angular/common';
+import { MaterialModule } from './modules/material/material.module';
+import { MatXtndModule } from '@matxtnd'
+import { LoadingMessageComponent } from './examples/loading-message/loading-message.component';
+
+<Meta title="Components/LoadingMessage" component={LoadingMessageComponent} decorators={[
+  moduleMetadata({
+    imports: [
+        CommonModule,
+        MaterialModule,
+        MatXtndModule
+      ]
+  })
+]}
+parameters={{
+    viewMode: 'docs',
+    previewTabs: { 
+      canvas: { hidden: true } 
+     },
+  }}
+/>
+
+# Loading Message
+Ligth weight component to provide the UI with a Loading State
+
+### Usage
+
+```html
+<matxtnd-loading-message [color]="color" [diameter]="diameter" [strokeWidth]="strokeWidth">
+  Loading...
+</matxtnd-loading-message>
+```
+### Example
+
+export const Template = (args) => ({
+   props: args
+});
+
+<Story 
+  name="Default" args={{ busy: true }}>
+  {Template.bind({})}
+</Story>
+
+<ArgsTable story="." />

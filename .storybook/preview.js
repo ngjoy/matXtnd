@@ -1,4 +1,4 @@
-import '!style-loader!css-loader!sass-loader!./scss-loader.scss';
+/*import '!style-loader!css-loader!sass-loader!./scss-loader.scss';*/
 import { setCompodocJson } from "@storybook/addon-docs/angular";
 import docJson from "../documentation.json";
 setCompodocJson(docJson);

@@ -3,70 +3,580 @@
     "interfaces": [
         {
             "name": "User",
-            "id": "interface-User-9c7e5f1bbbab702cb032307d130876cb68969b0cd4eedef32a0c8cad8081a54e5f8f577ed6ad4539c1b99a1d246cb34031d198c2ea8eba440e64e91b14f01fdc",
+            "id": "interface-User-dcc5c3137cd472dd0002d85b562efd23162e3eff53ca4438a6251e6c46e3b8299076255380d1d42f386510cb6f2cbaab49fa5b5f253be459cdc3869428c5c400",
             "file": "stories/User.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "export interface User {}\n",
+            "sourceCode": "export interface User {}\r\n",
             "properties": [],
             "indexSignatures": [],
             "methods": []
         }
     ],
-    "injectables": [],
-    "guards": [],
-    "interceptors": [],
-    "classes": [
+    "injectables": [
         {
-            "name": "AppPage",
-            "id": "class-AppPage-d83b95cb897fd7f1ecc7216a31a9167598810a902c9c43ec11b6a93965548994186b900fe348e64bdf35a97b36d2fdb26731097dc1738e7f73bc67d2d432a47c",
-            "file": "projects/integration/e2e/src/app.po.ts",
-            "deprecated": false,
-            "deprecationMessage": "",
-            "type": "class",
-            "sourceCode": "import { browser, by, element } from 'protractor';\n\nexport class AppPage {\n  async navigateTo(): Promise<unknown> {\n    return browser.get(browser.baseUrl);\n  }\n\n  async getTitleText(): Promise<string> {\n    return element(by.css('app-root .content span')).getText();\n  }\n}\n",
+            "name": "MatXtndConfirmationDialogService",
+            "id": "injectable-MatXtndConfirmationDialogService-a0dd6215e9bb28e2abe4a576cb9853089a0d99f9d82da635fefbde8e8155837a19b263b9ce6dfef837ed3155c207fa6f652d9a3fe4d5719983eaa14be07c2aee",
+            "file": "projects/mat-xtnd/src/lib/dialogs/services/confirmation-dialog.service.ts",
             "properties": [],
             "methods": [
                 {
-                    "name": "getTitleText",
-                    "args": [],
+                    "name": "OnOk",
+                    "args": [
+                        {
+                            "name": "parms",
+                            "type": "MatXtndConfirmationDialogParamsType",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "config",
+                            "type": "MatDialogConfig<MatXtndConfirmationDialogComponent>",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "defaultValue": "{ width: '250px', disableClose: true }"
+                        }
+                    ],
                     "optional": false,
-                    "returnType": "Promise<string>",
+                    "returnType": "Observable<void>",
                     "typeParameters": [],
-                    "line": 8,
+                    "line": 20,
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "modifierKind": [
-                        131
+                    "jsdoctags": [
+                        {
+                            "name": "parms",
+                            "type": "MatXtndConfirmationDialogParamsType",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "config",
+                            "type": "MatDialogConfig<MatXtndConfirmationDialogComponent>",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "defaultValue": "{ width: '250px', disableClose: true }",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
                     ]
                 },
                 {
-                    "name": "navigateTo",
-                    "args": [],
+                    "name": "OnOkOrCancel",
+                    "args": [
+                        {
+                            "name": "parms",
+                            "type": "MatXtndConfirmationDialogParamsType",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "config",
+                            "type": "MatDialogConfig<MatXtndConfirmationDialogComponent>",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "defaultValue": "{ width: '250px', disableClose: true }"
+                        }
+                    ],
                     "optional": false,
-                    "returnType": "Promise<>",
+                    "returnType": "Observable<MatXtndConfirmationDialogActionType>",
                     "typeParameters": [],
-                    "line": 4,
+                    "line": 12,
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "modifierKind": [
-                        131
+                    "jsdoctags": [
+                        {
+                            "name": "parms",
+                            "type": "MatXtndConfirmationDialogParamsType",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "config",
+                            "type": "MatDialogConfig<MatXtndConfirmationDialogComponent>",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "defaultValue": "{ width: '250px', disableClose: true }",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
                     ]
                 }
             ],
-            "indexSignatures": [],
-            "inputsClass": [],
-            "outputsClass": [],
-            "hostBindings": [],
-            "hostListeners": []
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { Injectable } from '@angular/core';\r\nimport { MatDialog, MatDialogConfig } from '@angular/material/dialog';\r\nimport { MatXtndConfirmationDialogActionType, MatXtndConfirmationDialogActionTypes, MatXtndConfirmationDialogButtonLabelsDefaults, MatXtndConfirmationDialogComponent, MatXtndConfirmationDialogParamsType } from '../components';\r\nimport { filter } from 'rxjs/operators';\r\nimport { Observable } from 'rxjs';\r\n\r\n@Injectable()\r\nexport class MatXtndConfirmationDialogService {\r\n\r\n  constructor(private readonly dialog: MatDialog) { }\r\n\r\n  OnOkOrCancel(parms: MatXtndConfirmationDialogParamsType, config: MatDialogConfig<MatXtndConfirmationDialogComponent> = { width: '250px', disableClose: true }): Observable<MatXtndConfirmationDialogActionType> {\r\n    const dialogInstance = this.dialog.open(MatXtndConfirmationDialogComponent, {\r\n      ...config,\r\n      data: { ...parms, buttonLabels: (parms.buttonLabels || MatXtndConfirmationDialogButtonLabelsDefaults)}\r\n    })\r\n    return dialogInstance.afterClosed().pipe(filter(x => !!x))\r\n  }\r\n\r\n  OnOk(parms: MatXtndConfirmationDialogParamsType, config: MatDialogConfig<MatXtndConfirmationDialogComponent> = { width: '250px', disableClose: true }): Observable<void> {\r\n    const dialogInstance = this.dialog.open(MatXtndConfirmationDialogComponent, {\r\n      ...config,\r\n      data: { ...parms, buttonLabels: (parms.buttonLabels || MatXtndConfirmationDialogButtonLabelsDefaults) }\r\n    })\r\n    return dialogInstance.afterClosed().pipe(filter(x => x === MatXtndConfirmationDialogActionTypes.OK))\r\n  }\r\n\r\n}\r\n",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "dialog",
+                        "type": "MatDialog",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 8,
+                "jsdoctags": [
+                    {
+                        "name": "dialog",
+                        "type": "MatDialog",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "type": "injectable"
+        },
+        {
+            "name": "MatXtndCssInjectorService",
+            "id": "injectable-MatXtndCssInjectorService-f2a8bbcc7ff96b3b56e4c6ad2534a51c5575423e706ffefee32b53cf79cedb881308372c468ef67344b9ebb2c578b9c7cd3b5ebdc9fa4fe1392e21ba06edeb41",
+            "file": "projects/mat-xtnd/src/lib/utils/services/css-injector.service.ts",
+            "properties": [
+                {
+                    "name": "renderer2",
+                    "defaultValue": "this.rendererFactory.createRenderer(null, null)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Renderer2",
+                    "optional": false,
+                    "description": "",
+                    "line": 9,
+                    "modifierKind": [
+                        144
+                    ]
+                }
+            ],
+            "methods": [
+                {
+                    "name": "fromSource",
+                    "args": [
+                        {
+                            "name": "key",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "src",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "Observable<void>",
+                    "typeParameters": [],
+                    "line": 16,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "key",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "src",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "",
+            "sourceCode": "import { DOCUMENT } from \"@angular/common\";\r\nimport { Injectable, RendererFactory2, Inject, Renderer2 } from \"@angular/core\";\r\nimport { Observable } from \"rxjs\";\r\n\r\n/** @dynamic */\r\n@Injectable()\r\nexport class MatXtndCssInjectorService {\r\n\r\n  readonly renderer2: Renderer2 = this.rendererFactory.createRenderer(null, null);\r\n\r\n  constructor(\r\n    private readonly rendererFactory: RendererFactory2,\r\n    @Inject(DOCUMENT) private readonly document: Document\r\n  ) { }\r\n\r\n  fromSource(key: string, src: string): Observable<void> {\r\n\r\n    return new Observable((sub) => {\r\n      const link = this.document.createElement(\"link\");\r\n      link.href = src;\r\n      link.id = key;\r\n      link.rel = \"stylesheet\";\r\n      link.onload = () => {\r\n        sub.next();\r\n        sub.complete();\r\n      }\r\n      this.renderer2.appendChild(this.document.body, link);\r\n    });\r\n  }\r\n\r\n\r\n}\r\n",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "rendererFactory",
+                        "type": "RendererFactory2",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "document",
+                        "type": "Document",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 9,
+                "jsdoctags": [
+                    {
+                        "name": "rendererFactory",
+                        "type": "RendererFactory2",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "document",
+                        "type": "Document",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "type": "injectable"
+        },
+        {
+            "name": "MatXtndScriptInjectorService",
+            "id": "injectable-MatXtndScriptInjectorService-78a82975a2c1b85ee1e0897f099bf6ad58568e5e15a81814b2d168ff6af0fbdf7ba46c6a8f1771c3695c2a62a40d5efcea3a8c7df5b0fbff25c8a594a84161f8",
+            "file": "projects/mat-xtnd/src/lib/utils/services/script-injector.service.ts",
+            "properties": [
+                {
+                    "name": "renderer2",
+                    "defaultValue": "this.rendererFactory.createRenderer(null, null)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Renderer2",
+                    "optional": false,
+                    "description": "",
+                    "line": 9,
+                    "modifierKind": [
+                        144
+                    ]
+                }
+            ],
+            "methods": [
+                {
+                    "name": "fromSource",
+                    "args": [
+                        {
+                            "name": "key",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "src",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "Observable<void>",
+                    "typeParameters": [],
+                    "line": 21,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "key",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "src",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "hasScript",
+                    "args": [
+                        {
+                            "name": "key",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "boolean",
+                    "typeParameters": [],
+                    "line": 16,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "key",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "",
+            "sourceCode": "import { DOCUMENT } from \"@angular/common\";\r\nimport { Inject, Injectable, Renderer2, RendererFactory2 } from \"@angular/core\";\r\nimport { Observable } from \"rxjs\";\r\n\r\n/** @dynamic */\r\n@Injectable()\r\nexport class MatXtndScriptInjectorService {\r\n\r\n  readonly renderer2: Renderer2 = this.rendererFactory.createRenderer(null, null);\r\n\r\n  constructor(\r\n    private readonly rendererFactory: RendererFactory2,\r\n    @Inject(DOCUMENT) private readonly document: Document\r\n  ) { }\r\n\r\n  hasScript(key: string) {\r\n    const script = this.document.getElementById(key);\r\n    return !!script;\r\n  }\r\n\r\n  fromSource(key: string, src: string): Observable<void> {\r\n\r\n    return new Observable((sub) => {\r\n      const script = this.document.createElement(\"script\");\r\n      script.id = key;\r\n      script.type = \"text/javascript\";\r\n      script.src = src;\r\n      script.onload = () => {\r\n        sub.next();\r\n        sub.complete();\r\n      }\r\n      this.renderer2.appendChild(this.document.body, script);\r\n    });\r\n  }\r\n\r\n\r\n}\r\n",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "rendererFactory",
+                        "type": "RendererFactory2",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "document",
+                        "type": "Document",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 9,
+                "jsdoctags": [
+                    {
+                        "name": "rendererFactory",
+                        "type": "RendererFactory2",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "document",
+                        "type": "Document",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "type": "injectable"
+        },
+        {
+            "name": "MatXtndSnackbarSuccessService",
+            "id": "injectable-MatXtndSnackbarSuccessService-7e73eb6e1ed0490b66ce76b198f7354f29c78861fd45396dfc12f76a1950caf12ceefda1970f66376b825d28463dcb1aab3e37092089a18d5d79ba8057c5e823",
+            "file": "projects/mat-xtnd/src/lib/snackbar-success/services/snackbar-success.service.ts",
+            "properties": [],
+            "methods": [
+                {
+                    "name": "Open",
+                    "args": [
+                        {
+                            "name": "message",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "config",
+                            "type": "MatSnackBarConfig",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "defaultValue": "{ duration: 3000, horizontalPosition: 'right', verticalPosition:'bottom'}"
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 10,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "message",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "config",
+                            "type": "MatSnackBarConfig",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "defaultValue": "{ duration: 3000, horizontalPosition: 'right', verticalPosition:'bottom'}",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { Injectable } from '@angular/core';\r\nimport { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';\r\nimport { MatXtndSnackbarSuccessComponent } from '../components';\r\n\r\n@Injectable()\r\nexport class MatXtndSnackbarSuccessService {\r\n\r\n  constructor(private readonly snackbar: MatSnackBar) { }\r\n\r\n  Open(message: string, config: MatSnackBarConfig = { duration: 3000, horizontalPosition: 'right', verticalPosition:'bottom'}) {\r\n    this.snackbar.openFromComponent(MatXtndSnackbarSuccessComponent, <MatSnackBarConfig>{\r\n      data: { message },\r\n      panelClass: `matxtnd-snackbar-success-panel`,\r\n      ...config\r\n    })\r\n  }\r\n}\r\n",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "snackbar",
+                        "type": "MatSnackBar",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 6,
+                "jsdoctags": [
+                    {
+                        "name": "snackbar",
+                        "type": "MatSnackBar",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "type": "injectable"
+        },
+        {
+            "name": "MatXtndThemeColorFinderService",
+            "id": "injectable-MatXtndThemeColorFinderService-3626e36abb833a840722c938557d17b6d3482b4bab7cc1e9df330d5ef9d33685d13565fcfc6d7ef398360678fa87d64a7876e39e3b46f48010d99379d4e276db",
+            "file": "projects/mat-xtnd/src/lib/utils/services/theme-color-finder.service.ts",
+            "properties": [
+                {
+                    "name": "colors",
+                    "defaultValue": "{ primary: '', accent: '', warn: '' }",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "MatXtndMaterialColorValueType",
+                    "optional": false,
+                    "description": "",
+                    "line": 14
+                }
+            ],
+            "methods": [
+                {
+                    "name": "fetchColors",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 30,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "initOverlay",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 23,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "",
+            "sourceCode": "import { Overlay } from '@angular/cdk/overlay';\r\nimport { ComponentPortal } from '@angular/cdk/portal';\r\nimport { DOCUMENT } from '@angular/common';\r\nimport { Inject, Injectable } from '@angular/core';\r\nimport { MatXtndThemeHelperComponent } from '../components';\r\n\r\nexport type MatXtndMaterialColorType = \"primary\" | \"accent\" | \"warn\";\r\nexport type MatXtndMaterialColorValueType = { [key in MatXtndMaterialColorType]: string }\r\n\r\n/** @dynamic */\r\n@Injectable()\r\nexport class MatXtndThemeColorFinderService {\r\n\r\n  colors: MatXtndMaterialColorValueType = { primary: '', accent: '', warn: '' };\r\n\r\n  constructor(\r\n    private readonly overlay: Overlay,\r\n    @Inject(DOCUMENT) private readonly document: Document\r\n  ) {\r\n    this.initOverlay();\r\n  }\r\n\r\n  initOverlay() {\r\n    const overlayref = this.overlay.create();\r\n    const fpp = new ComponentPortal(MatXtndThemeHelperComponent);\r\n    overlayref.attach(fpp);\r\n    this.fetchColors();\r\n  }\r\n\r\n  fetchColors() {\r\n    const comp = this.document.querySelector('matxtnd-theme-helper');\r\n    const primary = comp?.querySelector('[color=\"primary\"]');\r\n    const accent = comp?.querySelector('[color=\"accent\"]');\r\n    const warn = comp?.querySelector('[color=\"warn\"]');\r\n\r\n    if (primary && accent && warn) {\r\n      this.colors = {\r\n        primary: getComputedStyle(primary).backgroundColor,\r\n        accent: getComputedStyle(accent).backgroundColor,\r\n        warn: getComputedStyle(warn).backgroundColor\r\n      }\r\n    }\r\n    \r\n  }\r\n\r\n\r\n}\r\n",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "overlay",
+                        "type": "Overlay",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "document",
+                        "type": "Document",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 14,
+                "jsdoctags": [
+                    {
+                        "name": "overlay",
+                        "type": "Overlay",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "document",
+                        "type": "Document",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "type": "injectable"
         }
     ],
+    "guards": [],
+    "interceptors": [],
+    "classes": [],
     "directives": [],
     "components": [
         {
             "name": "AppComponent",
-            "id": "component-AppComponent-e6b37320bc9c593fa07c46b0e2e38f708d64328ec8152fa47c3c3a7f9d12f1b93e3da435a85f6b58183f0510b8d5eec65ea444bcb57b67a29364da484e122c1d",
+            "id": "component-AppComponent-874ae6db9ebd1ea89db5f7f0c816e2cf6ff553a5f0cc6c567eff9ad012c04a4eb22893b254ae233188e35e9abae56e987231381646b45b2886e4542a33e9afb0",
             "file": "projects/integration/src/app/app.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -93,10 +603,21 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 9
+                    "line": 10
                 }
             ],
-            "methodsClass": [],
+            "methodsClass": [
+                {
+                    "name": "successSnackbar",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 13,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
@@ -104,7 +625,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-root',\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.scss']\n})\nexport class AppComponent {\n  title = 'integration';\n}\n",
+            "sourceCode": "import { Component } from '@angular/core';\r\nimport { MatXtndSnackbarSuccessService } from '../../../mat-xtnd/src/lib/snackbar-success';\r\n\r\n@Component({\r\n  selector: 'app-root',\r\n  templateUrl: './app.component.html',\r\n  styleUrls: ['./app.component.scss']\r\n})\r\nexport class AppComponent {\r\n  title = 'integration';\r\n  constructor(private readonly snackbarSuccessStatus: MatXtndSnackbarSuccessService) { }\r\n\r\n  successSnackbar() {\r\n    this.snackbarSuccessStatus.Open('Activity Completed');\r\n  }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -113,11 +634,37 @@
                 }
             ],
             "stylesData": "",
-            "templateData": "\r\n<matxtnd-loading-button mat-raised-button [busy]=\"true\">\r\n  <matxtnd-loading-button-ready>\r\n    Update\r\n  </matxtnd-loading-button-ready>\r\n  <matxtnd-loading-button-busy>\r\n    Updating...\r\n  </matxtnd-loading-button-busy>\r\n</matxtnd-loading-button>\r\n"
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "snackbarSuccessStatus",
+                        "type": "MatXtndSnackbarSuccessService",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 10,
+                "jsdoctags": [
+                    {
+                        "name": "snackbarSuccessStatus",
+                        "type": "MatXtndSnackbarSuccessService",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "templateData": "\r\n<matxtnd-loading-button mat-raised-button [busy]=\"true\">\r\n  <matxtnd-loading-button-ready>\r\n    Update\r\n  </matxtnd-loading-button-ready>\r\n  <matxtnd-loading-button-busy>\r\n    Updating...\r\n  </matxtnd-loading-button-busy>\r\n</matxtnd-loading-button>\r\n\r\n\r\n<matxtnd-loading-message>\r\n  Loading...\r\n</matxtnd-loading-message>\r\n\r\n<matxtnd-swoosh-animation></matxtnd-swoosh-animation>\r\n\r\n<button mat-button color=\"primary\" (click)=\"successSnackbar()\">Display Success SnackBar</button>\r\n"
         },
         {
             "name": "ButtonComponent",
-            "id": "component-ButtonComponent-4ef205c97a334c309aa4001c8ab4a6d9571dcae18d0e85aaf0d367467ab5d3a9f13ab3573726f1fcb409bc9b49894dadfb80b1bbe1b6ba7041455ad9d4922004",
+            "id": "component-ButtonComponent-8ceaf520f96e5437b08eeda244d84efb29effe62ddca4fc38eaa229085c2a1126c5715e61445bae741505aca1e4d377b350cb05fadd1dc45d9b2bbf7527029f1",
             "file": "stories/button.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -150,15 +697,15 @@
                     "deprecationMessage": "",
                     "jsdoctags": [
                         {
-                            "pos": 711,
-                            "end": 724,
+                            "pos": 747,
+                            "end": 761,
                             "flags": 4227072,
                             "modifierFlagsCache": 0,
                             "transformFlags": 0,
                             "kind": 325,
                             "tagName": {
-                                "pos": 712,
-                                "end": 720,
+                                "pos": 748,
+                                "end": 756,
                                 "flags": 4227072,
                                 "modifierFlagsCache": 0,
                                 "transformFlags": 0,
@@ -218,11 +765,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\n\n@Component({\n  selector: 'storybook-button',\n  template: ` <button\n    type=\"button\"\n    (click)=\"onClick.emit($event)\"\n    [ngClass]=\"classes\"\n    [ngStyle]=\"{ 'background-color': backgroundColor }\"\n  >\n    {{ label }}\n  </button>`,\n  styleUrls: ['./button.css'],\n})\nexport default class ButtonComponent {\n  /**\n   * Is this the principal call to action on the page?\n   */\n  @Input()\n  primary = false;\n\n  /**\n   * What background color to use\n   */\n  @Input()\n  backgroundColor?: string;\n\n  /**\n   * How large should the button be?\n   */\n  @Input()\n  size: 'small' | 'medium' | 'large' = 'medium';\n\n  /**\n   * Button contents\n   *\n   * @required\n   */\n  @Input()\n  label = 'Button';\n\n  /**\n   * Optional click handler\n   */\n  @Output()\n  onClick = new EventEmitter<Event>();\n\n  public get classes(): string[] {\n    const mode = this.primary ? 'storybook-button--primary' : 'storybook-button--secondary';\n\n    return ['storybook-button', `storybook-button--${this.size}`, mode];\n  }\n}\n",
+            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'storybook-button',\r\n  template: ` <button\r\n    type=\"button\"\r\n    (click)=\"onClick.emit($event)\"\r\n    [ngClass]=\"classes\"\r\n    [ngStyle]=\"{ 'background-color': backgroundColor }\"\r\n  >\r\n    {{ label }}\r\n  </button>`,\r\n  styleUrls: ['./button.css'],\r\n})\r\nexport default class ButtonComponent {\r\n  /**\r\n   * Is this the principal call to action on the page?\r\n   */\r\n  @Input()\r\n  primary = false;\r\n\r\n  /**\r\n   * What background color to use\r\n   */\r\n  @Input()\r\n  backgroundColor?: string;\r\n\r\n  /**\r\n   * How large should the button be?\r\n   */\r\n  @Input()\r\n  size: 'small' | 'medium' | 'large' = 'medium';\r\n\r\n  /**\r\n   * Button contents\r\n   *\r\n   * @required\r\n   */\r\n  @Input()\r\n  label = 'Button';\r\n\r\n  /**\r\n   * Optional click handler\r\n   */\r\n  @Output()\r\n  onClick = new EventEmitter<Event>();\r\n\r\n  public get classes(): string[] {\r\n    const mode = this.primary ? 'storybook-button--primary' : 'storybook-button--secondary';\r\n\r\n    return ['storybook-button', `storybook-button--${this.size}`, mode];\r\n  }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".storybook-button {\n  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;\n  font-weight: 700;\n  border: 0;\n  border-radius: 3em;\n  cursor: pointer;\n  display: inline-block;\n  line-height: 1;\n}\n.storybook-button--primary {\n  color: white;\n  background-color: #1ea7fd;\n}\n.storybook-button--secondary {\n  color: #333;\n  background-color: transparent;\n  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;\n}\n.storybook-button--small {\n  font-size: 12px;\n  padding: 10px 16px;\n}\n.storybook-button--medium {\n  font-size: 14px;\n  padding: 11px 20px;\n}\n.storybook-button--large {\n  font-size: 16px;\n  padding: 12px 24px;\n}\n",
+                    "data": ".storybook-button {\r\n  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;\r\n  font-weight: 700;\r\n  border: 0;\r\n  border-radius: 3em;\r\n  cursor: pointer;\r\n  display: inline-block;\r\n  line-height: 1;\r\n}\r\n.storybook-button--primary {\r\n  color: white;\r\n  background-color: #1ea7fd;\r\n}\r\n.storybook-button--secondary {\r\n  color: #333;\r\n  background-color: transparent;\r\n  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;\r\n}\r\n.storybook-button--small {\r\n  font-size: 12px;\r\n  padding: 10px 16px;\r\n}\r\n.storybook-button--medium {\r\n  font-size: 14px;\r\n  padding: 11px 20px;\r\n}\r\n.storybook-button--large {\r\n  font-size: 16px;\r\n  padding: 12px 24px;\r\n}\r\n",
                     "styleUrl": "./button.css"
                 }
             ],
@@ -240,81 +787,8 @@
             }
         },
         {
-            "name": "HeaderComponent",
-            "id": "component-HeaderComponent-a557eec14f72c438a8033301f4d6ce023e0a1844a3b06ec2b38794a612acc31735ae78a5ee10071b230c8c20d699eb914554e69d07ade54adb371da8efb464cc",
-            "file": "stories/header.component.ts",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "storybook-header",
-            "styleUrls": [
-                "./header.css"
-            ],
-            "styles": [],
-            "template": "<header>    <div class=\"wrapper\">\n      <div>\n        <svg width=\"32\" height=\"32\" viewBox=\"0 0 32 32\" xmlns=\"http://www.w3.org/2000/svg\">\n          <g fill=\"none\" fillRule=\"evenodd\">\n            <path\n              d=\"M10 0h12a10 10 0 0110 10v12a10 10 0 01-10 10H10A10 10 0 010 22V10A10 10 0 0110 0z\"\n              fill=\"#FFF\"\n            />\n            <path\n              d=\"M5.3 10.6l10.4 6v11.1l-10.4-6v-11zm11.4-6.2l9.7 5.5-9.7 5.6V4.4z\"\n              fill=\"#555AB9\"\n            />\n            <path\n              d=\"M27.2 10.6v11.2l-10.5 6V16.5l10.5-6zM15.7 4.4v11L6 10l9.7-5.5z\"\n              fill=\"#91BAF8\"\n            />\n          </g>\n        </svg>\n        <h1>Acme</h1>\n      </div>\n      <div>\n        <div *ngIf=\"user\">\n          <span class=\"welcome\">\n            Welcome, <b>{{ user.name }}</b\n            >!\n          </span>\n          <storybook-button\n            *ngIf=\"user\"\n            size=\"small\"\n            (onClick)=\"onLogout.emit($event)\"\n            label=\"Log out\"\n          ></storybook-button>\n        </div>\n        <div *ngIf=\"!user\">\n          <storybook-button\n            *ngIf=\"!user\"\n            size=\"small\"\n            class=\"margin-left\"\n            (onClick)=\"onLogin.emit($event)\"\n            label=\"Log in\"\n          ></storybook-button>\n          <storybook-button\n            *ngIf=\"!user\"\n            primary\n            size=\"small\"\n            primary=\"true\"\n            class=\"margin-left\"\n            (onClick)=\"onCreateAccount.emit($event)\"\n            label=\"Sign up\"\n          ></storybook-button>\n        </div>\n      </div>\n    </div>\n  </header>",
-            "templateUrl": [],
-            "viewProviders": [],
-            "inputsClass": [
-                {
-                    "name": "user",
-                    "defaultValue": "null",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 65,
-                    "type": "User | null",
-                    "decorators": []
-                }
-            ],
-            "outputsClass": [
-                {
-                    "name": "onCreateAccount",
-                    "defaultValue": "new EventEmitter<Event>()",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 74,
-                    "type": "EventEmitter"
-                },
-                {
-                    "name": "onLogin",
-                    "defaultValue": "new EventEmitter<Event>()",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 68,
-                    "type": "EventEmitter"
-                },
-                {
-                    "name": "onLogout",
-                    "defaultValue": "new EventEmitter<Event>()",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 71,
-                    "type": "EventEmitter"
-                }
-            ],
-            "propertiesClass": [],
-            "methodsClass": [],
-            "deprecated": false,
-            "deprecationMessage": "",
-            "hostBindings": [],
-            "hostListeners": [],
-            "description": "",
-            "rawdescription": "\n",
-            "type": "component",
-            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\nimport { User } from './User';\n\n@Component({\n  selector: 'storybook-header',\n  template: `<header>\n    <div class=\"wrapper\">\n      <div>\n        <svg width=\"32\" height=\"32\" viewBox=\"0 0 32 32\" xmlns=\"http://www.w3.org/2000/svg\">\n          <g fill=\"none\" fillRule=\"evenodd\">\n            <path\n              d=\"M10 0h12a10 10 0 0110 10v12a10 10 0 01-10 10H10A10 10 0 010 22V10A10 10 0 0110 0z\"\n              fill=\"#FFF\"\n            />\n            <path\n              d=\"M5.3 10.6l10.4 6v11.1l-10.4-6v-11zm11.4-6.2l9.7 5.5-9.7 5.6V4.4z\"\n              fill=\"#555AB9\"\n            />\n            <path\n              d=\"M27.2 10.6v11.2l-10.5 6V16.5l10.5-6zM15.7 4.4v11L6 10l9.7-5.5z\"\n              fill=\"#91BAF8\"\n            />\n          </g>\n        </svg>\n        <h1>Acme</h1>\n      </div>\n      <div>\n        <div *ngIf=\"user\">\n          <span class=\"welcome\">\n            Welcome, <b>{{ user.name }}</b\n            >!\n          </span>\n          <storybook-button\n            *ngIf=\"user\"\n            size=\"small\"\n            (onClick)=\"onLogout.emit($event)\"\n            label=\"Log out\"\n          ></storybook-button>\n        </div>\n        <div *ngIf=\"!user\">\n          <storybook-button\n            *ngIf=\"!user\"\n            size=\"small\"\n            class=\"margin-left\"\n            (onClick)=\"onLogin.emit($event)\"\n            label=\"Log in\"\n          ></storybook-button>\n          <storybook-button\n            *ngIf=\"!user\"\n            primary\n            size=\"small\"\n            primary=\"true\"\n            class=\"margin-left\"\n            (onClick)=\"onCreateAccount.emit($event)\"\n            label=\"Sign up\"\n          ></storybook-button>\n        </div>\n      </div>\n    </div>\n  </header>`,\n  styleUrls: ['./header.css'],\n})\nexport default class HeaderComponent {\n  @Input()\n  user: User | null = null;\n\n  @Output()\n  onLogin = new EventEmitter<Event>();\n\n  @Output()\n  onLogout = new EventEmitter<Event>();\n\n  @Output()\n  onCreateAccount = new EventEmitter<Event>();\n}\n",
-            "assetsDirs": [],
-            "styleUrlsData": [
-                {
-                    "data": ".wrapper {\n  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;\n  border-bottom: 1px solid rgba(0, 0, 0, 0.1);\n  padding: 15px 20px;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n\nsvg {\n  display: inline-block;\n  vertical-align: top;\n}\n\nh1 {\n  font-weight: 900;\n  font-size: 20px;\n  line-height: 1;\n  margin: 6px 0 6px 10px;\n  display: inline-block;\n  vertical-align: top;\n}\n\nbutton + button {\n  margin-left: 10px;\n}\n\n.welcome {\n  color: #333;\n  font-size: 14px;\n  margin-right: 10px;\n}\n",
-                    "styleUrl": "./header.css"
-                }
-            ],
-            "stylesData": ""
-        },
-        {
             "name": "LoadingButtonComponent",
-            "id": "component-LoadingButtonComponent-a62d1df6372e417c2e43408ec4b37055a6d63c1a56450a23a57f69eaeca04dafe07f388905776950b6d53ecf57626e0b37c708b5f694714e5428a7b9e5db43b1",
+            "id": "component-LoadingButtonComponent-446fc05074c8ae698f240c56eccb5e686daec005960b501f2d81bd09d3841cdc99322ede0958fdabe48f6430e7a4276dd23a58b3aab65f85002b5579accca67b",
             "file": "stories/examples/loading-button/loading-button.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -336,9 +810,53 @@
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "rawdescription": "\n\nBusy State\n",
-                    "description": "<p>Busy State</p>\n",
+                    "rawdescription": "\n\nBusy State (NgParam)\n",
+                    "description": "<p>Busy State (NgParam)</p>\n",
                     "line": 13,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "buttonLoadingText",
+                    "defaultValue": "'Updating...'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nButton Loading State Text  Text\n",
+                    "description": "<p>Button Loading State Text  Text</p>\n",
+                    "line": 33,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "buttonText",
+                    "defaultValue": "'Update'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nButton Text\n",
+                    "description": "<p>Button Text</p>\n",
+                    "line": 28,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "color",
+                    "defaultValue": "'primary'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nMaterial Color (NgParam)\n",
+                    "description": "<p>Material Color (NgParam)</p>\n",
+                    "line": 18,
+                    "type": "\"primary\" | \"accent\" | \"warn\"",
+                    "decorators": []
+                },
+                {
+                    "name": "disabled",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\ndisabled (NgParam)\n",
+                    "description": "<p>disabled (NgParam)</p>\n",
+                    "line": 23,
                     "type": "boolean",
                     "decorators": []
                 }
@@ -353,20 +871,105 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input } from '@angular/core';\n\n@Component({\n  selector: 'loading-button',\n  templateUrl: 'loading-button.component.html',\n  styleUrls: [`loading-button.component.scss`],\n})\nexport class LoadingButtonComponent {\n\n  /**\n  * Busy State\n  */\n  @Input() busy = false;\n\n} \n",
+            "sourceCode": "import { Component, Input } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'loading-button',\r\n  templateUrl: 'loading-button.component.html',\r\n  styleUrls: [`loading-button.component.scss`],\r\n})\r\nexport class LoadingButtonComponent {\r\n\r\n  /**\r\n  * Busy State (NgParam)\r\n  */\r\n  @Input() busy = false;\r\n\r\n  /**\r\n  * Material Color (NgParam)\r\n  */\r\n  @Input() color: 'primary' | 'accent' | 'warn' = 'primary';\r\n\r\n  /**\r\n* disabled (NgParam)\r\n*/\r\n  @Input() disabled: boolean = false;\r\n\r\n  /**\r\n* Button Text\r\n*/\r\n  @Input() buttonText = 'Update';\r\n\r\n    /**\r\n* Button Loading State Text  Text\r\n*/\r\n@Input() buttonLoadingText = 'Updating...';\r\n\r\n\r\n} \r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@import '@angular/material/prebuilt-themes/deeppurple-amber.css';\r\n:host{\r\n@import '@angular/material/prebuilt-themes/deeppurple-amber.css';\r\n}\r\n",
+                    "data": "\r\n",
                     "styleUrl": "loading-button.component.scss"
                 }
             ],
             "stylesData": "",
-            "templateData": "<matxtnd-loading-button mat-raised-button [busy]=\"busy\">\r\n  <matxtnd-loading-button-ready>\r\n    Update\r\n  </matxtnd-loading-button-ready>\r\n  <matxtnd-loading-button-busy>\r\n    Updating...\r\n  </matxtnd-loading-button-busy>\r\n</matxtnd-loading-button>\r\n\r\n\r\n<button mat-raised-button color=\"primary\">Primary</button>\r\n\r\n\r\n<mat-spinner color=\"primary\"></mat-spinner>\r\n"
+            "templateData": "<matxtnd-loading-button mat-raised-button [busy]=\"busy\" [color]=\"color\" [disabled]=\"disabled\">\r\n  <matxtnd-loading-button-ready>\r\n    {{buttonText}}\r\n  </matxtnd-loading-button-ready>\r\n  <matxtnd-loading-button-busy>\r\n    {{buttonLoadingText}}\r\n  </matxtnd-loading-button-busy>\r\n</matxtnd-loading-button>\r\n"
+        },
+        {
+            "name": "LoadingMessageComponent",
+            "id": "component-LoadingMessageComponent-4448a8ffcaa54b861b3b6e95471d879b4f1b82c99e8dfeaca4ca4946ab99ee48562fa5abb31f5401bee354e553380fc8cecbdbe7af43951c93c3a95639fb1886",
+            "file": "stories/examples/loading-message/loading-message.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "loading-message",
+            "styleUrls": [
+                "loading-message.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "loading-message.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "color",
+                    "defaultValue": "\"primary\"",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nMaterial Color (NgParam)\n",
+                    "description": "<p>Material Color (NgParam)</p>\n",
+                    "line": 13,
+                    "type": "\"primary\" | \"accent\" | \"warn\"",
+                    "decorators": []
+                },
+                {
+                    "name": "diameter",
+                    "defaultValue": "30",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nDiameter of the Loading Animation (NgParam)\n",
+                    "description": "<p>Diameter of the Loading Animation (NgParam)</p>\n",
+                    "line": 17,
+                    "type": "number",
+                    "decorators": []
+                },
+                {
+                    "name": "loadingMessage",
+                    "defaultValue": "'Loading...'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nLoading message\n",
+                    "description": "<p>Loading message</p>\n",
+                    "line": 26,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "strokeWidth",
+                    "defaultValue": "2",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nStroke Width of the Loading Animation (NgParam)\n",
+                    "description": "<p>Stroke Width of the Loading Animation (NgParam)</p>\n",
+                    "line": 21,
+                    "type": "number",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'loading-message',\r\n  templateUrl: 'loading-message.component.html',\r\n  styleUrls: [`loading-message.component.scss`]\r\n})\r\nexport class LoadingMessageComponent {\r\n\r\n   /**\r\n   * Material Color (NgParam)\r\n   */\r\n  @Input() color: 'primary' | 'accent' | 'warn' = \"primary\";\r\n  /**\r\n  * Diameter of the Loading Animation (NgParam)\r\n  */\r\n  @Input() diameter: number = 30;\r\n  /**\r\n  * Stroke Width of the Loading Animation (NgParam)\r\n  */\r\n  @Input() strokeWidth: number = 2;\r\n\r\n  /**\r\n  * Loading message\r\n  */\r\n  @Input() loadingMessage: string = 'Loading...';\r\n\r\n} \r\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "loading-message.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "templateData": "<matxtnd-loading-message [color]=\"color\" [diameter]=\"diameter\" [strokeWidth]=\"strokeWidth\">\r\n  {{loadingMessage}}\r\n</matxtnd-loading-message>\r\n"
         },
         {
             "name": "MatXtndBusyComponent",
-            "id": "component-MatXtndBusyComponent-95898e77d6a32ca79719492eb7cd04892088d3f2bf343576ffbc38833b5728b068e3685c68ec8a11f56e648a710a5cd162514398b1a8d5403b93b7c86a009af4",
+            "id": "component-MatXtndBusyComponent-a52c806bda1a46392fafe210e5b029dd2d8986f50f4842a550c25f7f4f90149911bf5ec78000cbeda8317f872149701307e48dd5f7b961ddf5da6bded98d73cf",
             "file": "projects/mat-xtnd/src/lib/loading-button/busy/busy.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -412,7 +1015,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Host } from '@angular/core';\nimport { MatXtndLoadingButtonComponent } from '../loading-button.component';\r\n\n@Component({\n  selector: 'matxtnd-loading-button-busy',\n  templateUrl: 'busy.component.html',\n  styleUrls: [`busy.component.scss`]\n})\nexport class MatXtndBusyComponent {\n\n  constructor(@Host() public parentContext: MatXtndLoadingButtonComponent) { }\n} \n",
+            "sourceCode": "import { Component, Host } from '@angular/core';\r\nimport { MatXtndLoadingButtonComponent } from '../loading-button.component';\r\n\r\n@Component({\r\n  selector: 'matxtnd-loading-button-busy',\r\n  templateUrl: 'busy.component.html',\r\n  styleUrls: [`busy.component.scss`]\r\n})\r\nexport class MatXtndBusyComponent {\r\n\r\n  constructor(@Host() public parentContext: MatXtndLoadingButtonComponent) { }\r\n} \r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -450,8 +1053,145 @@
             "templateData": "<span class=\"busy-container\" *ngIf=\"parentContext.busy\">\r\n  <ng-content></ng-content>\r\n  <span class=\"busy-container-loading\">\r\n    <mat-progress-spinner mode=\"indeterminate\" [diameter]=\"20\" [strokeWidth]=\"2\"></mat-progress-spinner>\r\n  </span>\r\n</span>\r\n"
         },
         {
+            "name": "MatXtndConfirmationDialogComponent",
+            "id": "component-MatXtndConfirmationDialogComponent-32e2eec62700a965d84895d9e775f4f98974609d02b6929a402ebdfecad7050e320b0417e55e0f3b1a61cf8336ff81aa2e5992484ca347ea41f8dc8510fa280a",
+            "file": "projects/mat-xtnd/src/lib/dialogs/components/confirmation-dialog/confirmation-dialog.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "matxtnd-confirmation-dialog",
+            "styleUrls": [
+                "confirmation-dialog.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "confirmation-dialog.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "data",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "MatXtndConfirmationDialogParamsDataType",
+                    "optional": false,
+                    "description": "",
+                    "line": 22,
+                    "decorators": [
+                        {
+                            "name": "Inject",
+                            "stringifiedArguments": "MAT_DIALOG_DATA"
+                        }
+                    ],
+                    "modifierKind": [
+                        123,
+                        144
+                    ]
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "cancel",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 31,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "ok",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 25,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component, Inject, NgZone } from '@angular/core';\r\nimport { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';\r\n\r\nexport type MatXtndConfirmationDialogActionType = \"OK\" | \"CANCEL\";\r\nexport const MatXtndConfirmationDialogActionTypes: { [key in MatXtndConfirmationDialogActionType]: MatXtndConfirmationDialogActionType } = { OK: \"OK\", CANCEL: \"CANCEL\"}\r\nexport const MatXtndConfirmationDialogButtonLabelsDefaults: { [key in MatXtndConfirmationDialogActionType]: string } = { OK: \"Ok\", CANCEL: \"Cancel\" }\r\nexport type MatXtndConfirmationDialogButtonLabelsType = { OK: string, CANCEL: string}\r\nexport type MatXtndConfirmationDialogParamsType = { title?: string, message: string, buttonLabels?: MatXtndConfirmationDialogButtonLabelsType }\r\nexport type MatXtndConfirmationDialogParamsDataType = { title?: string, message: string, buttonLabels: MatXtndConfirmationDialogButtonLabelsType }\r\n\r\n/** @dynamic */\r\n@Component({\r\n  selector: 'matxtnd-confirmation-dialog',\r\n  templateUrl: 'confirmation-dialog.component.html',\r\n  styleUrls: [`confirmation-dialog.component.scss`]\r\n})\r\nexport class MatXtndConfirmationDialogComponent {\r\n\r\n  constructor(\r\n    private readonly ngZone: NgZone,\r\n    private readonly matDialogRef: MatDialogRef<MatXtndConfirmationDialogComponent>,\r\n    @Inject(MAT_DIALOG_DATA) public readonly data: MatXtndConfirmationDialogParamsDataType,\r\n  ) { }\r\n\r\n  ok() {\r\n    this.ngZone.run(() => {\r\n      this.matDialogRef.close(MatXtndConfirmationDialogActionTypes.OK);\r\n    });\r\n  }\r\n\r\n  cancel() {\r\n    this.ngZone.run(() => {\r\n      this.matDialogRef.close(MatXtndConfirmationDialogActionTypes.CANCEL);\r\n    });\r\n  }\r\n\r\n} \r\n\r\n\r\n\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ":host {\r\n  .matxtnd-confirmation-dialog-actions{\r\n      display:flex;\r\n      justify-content:flex-end;\r\n  }\r\n}\r\n",
+                    "styleUrl": "confirmation-dialog.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "ngZone",
+                        "type": "NgZone",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "matDialogRef",
+                        "type": "MatDialogRef<MatXtndConfirmationDialogComponent>",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "data",
+                        "type": "MatXtndConfirmationDialogParamsDataType",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 17,
+                "jsdoctags": [
+                    {
+                        "name": "ngZone",
+                        "type": "NgZone",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "matDialogRef",
+                        "type": "MatDialogRef<MatXtndConfirmationDialogComponent>",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "data",
+                        "type": "MatXtndConfirmationDialogParamsDataType",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "templateData": "<ng-container *ngIf=\"data.title\">\r\n  <h1 mat-dialog-title class=\"\">{{data.title}}</h1>\r\n</ng-container>\r\n<div mat-dialog-content class=\"\">\r\n  {{data.message}}\r\n</div>\r\n<div mat-dialog-actions class=\"matxtnd-confirmation-dialog-actions\">\r\n  <button mat-raised-button color=\"primary\" (click)=\"ok()\" cdkFocusInitial>{{data.buttonLabels.OK}}</button>\r\n  <button mat-raised-button (click)=\"cancel()\">{{data.buttonLabels.CANCEL}}</button>\r\n</div>\r\n"
+        },
+        {
             "name": "MatXtndLoadingButtonComponent",
-            "id": "component-MatXtndLoadingButtonComponent-85d29781a6af0e746e7bf0077081fb8f66d7d752c5f39428524b43ce3c81b67ead94fd80905857594ee94970130464cd24bf53a10c9598d8ae80985815e14058",
+            "id": "component-MatXtndLoadingButtonComponent-7366a971f0d44fa1f3e783d93754299f008f3d5ba99a412ecc9ae3ea86941987befdf0c598a179a7bc89854bd060caf6b9724f6c13f6d667d7ae4007ac4776c9",
             "file": "projects/mat-xtnd/src/lib/loading-button/loading-button.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -470,20 +1210,27 @@
             "inputsClass": [
                 {
                     "name": "busy",
-                    "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 22,
-                    "type": "boolean",
+                    "line": 28,
+                    "type": "BooleanInput",
+                    "decorators": []
+                },
+                {
+                    "name": "color",
+                    "defaultValue": "\"primary\"",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 26,
+                    "type": "ThemePalette",
                     "decorators": []
                 },
                 {
                     "name": "disabled",
-                    "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 23,
-                    "type": "boolean",
+                    "line": 33,
+                    "type": "BooleanInput",
                     "decorators": []
                 }
             ],
@@ -493,11 +1240,37 @@
                     "defaultValue": "new EventEmitter<LoadingBtnResponse>()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 26,
+                    "line": 38,
                     "type": "EventEmitter<LoadingBtnResponse>"
                 }
             ],
             "propertiesClass": [
+                {
+                    "name": "_busy",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 23,
+                    "modifierKind": [
+                        121
+                    ]
+                },
+                {
+                    "name": "_disabled",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 24,
+                    "modifierKind": [
+                        121
+                    ]
+                },
                 {
                     "name": "additionalCssClass",
                     "defaultValue": "\"\"",
@@ -506,7 +1279,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 30
+                    "line": 41
                 },
                 {
                     "name": "buttonType",
@@ -516,17 +1289,7 @@
                     "type": "ButtonTypes",
                     "optional": false,
                     "description": "",
-                    "line": 28
-                },
-                {
-                    "name": "color",
-                    "defaultValue": "\"primary\"",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "string | null",
-                    "optional": false,
-                    "description": "",
-                    "line": 29
+                    "line": 40
                 }
             ],
             "methodsClass": [
@@ -543,7 +1306,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 52,
+                    "line": 58,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -566,7 +1329,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, ElementRef, EventEmitter, Input, Output } from '@angular/core';\n\ntype LoadingBtnResponse = any;\ntype ButtonTypes = \"button\" | \"submit\" | \"reset\";\n\nconst materialButtonAttrs = [\n  'mat-button',\n  'mat-raised-button',\n  'mat-icon-button',\n  'mat-fab',\n  'mat-mini-fab'\n];\n\n@Component({\n  selector: 'matxtnd-loading-button',\n  templateUrl: 'loading-button.component.html',\n  styleUrls: [`loading-button.component.scss`]\n})\nexport class MatXtndLoadingButtonComponent {\n\n\n  @Input() busy: boolean = false;\n  @Input() disabled: boolean = false;\n\n  @Output()\n  private submit: EventEmitter<LoadingBtnResponse> = new EventEmitter<LoadingBtnResponse>();\n\n  buttonType: ButtonTypes = \"button\";\n  color: string | null = \"primary\"\n  additionalCssClass: string  = \"\";\n\n  constructor(element: ElementRef) {\n    const nativeEl = element.nativeElement as HTMLElement;\n\n    materialButtonAttrs.forEach((attr, index) => {\r\n      if (nativeEl.hasAttribute(attr)) {\r\n        this.additionalCssClass = `${attr} ${this.additionalCssClass}`\r\n      }\r\n    })\r\n\r\n    if (nativeEl.hasAttribute('type')) {\r\n      this.buttonType = nativeEl.getAttribute('type') as ButtonTypes;\r\n\r\n    }\r\n\r\n    if (nativeEl.hasAttribute('color')) {\r\n      this.color = nativeEl.getAttribute('color')\r\n    }\n  }\n\n\n  click($event: LoadingBtnResponse) {\n    this.submit.emit($event)\r\n  }\n\n} \n",
+            "sourceCode": "import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';\r\nimport { Component, ElementRef, EventEmitter, Input, Output } from '@angular/core';\r\nimport { ThemePalette } from '@angular/material/core';\r\n\r\ntype LoadingBtnResponse = any;\r\ntype ButtonTypes = \"button\" | \"submit\" | \"reset\";\r\n\r\nconst materialButtonAttrs = [\r\n  'mat-button',\r\n  'mat-raised-button',\r\n  'mat-icon-button',\r\n  'mat-fab',\r\n  'mat-mini-fab'\r\n];\r\n\r\n@Component({\r\n  selector: 'matxtnd-loading-button',\r\n  templateUrl: 'loading-button.component.html',\r\n  styleUrls: [`loading-button.component.scss`]\r\n})\r\nexport class MatXtndLoadingButtonComponent {\r\n\r\n  private _busy = false;\r\n  private _disabled = false;\r\n\r\n  @Input() color: ThemePalette = \"primary\";\r\n\r\n  @Input() set busy(value: BooleanInput) {\r\n    this._busy = coerceBooleanProperty(value);\r\n  }\r\n  get busy() { return this._busy; }\r\n\r\n  @Input() set disabled(value: BooleanInput) {\r\n    this._disabled = coerceBooleanProperty(value);\r\n  }\r\n  get disabled() { return this._disabled; }\r\n\r\n  @Output() submit: EventEmitter<LoadingBtnResponse> = new EventEmitter<LoadingBtnResponse>();\r\n\r\n  buttonType: ButtonTypes = \"button\";\r\n  additionalCssClass: string  = \"\";\r\n\r\n  constructor(element: ElementRef) {\r\n    const nativeEl = element.nativeElement as HTMLElement;\r\n\r\n    materialButtonAttrs.forEach((attr, index) => {\r\n      if (nativeEl.hasAttribute(attr)) {\r\n        this.additionalCssClass = `${attr} ${this.additionalCssClass}`\r\n      }\r\n    })\r\n\r\n    if (nativeEl.hasAttribute('type')) {\r\n      this.buttonType = nativeEl.getAttribute('type') as ButtonTypes;\r\n    }\r\n  }\r\n\r\n\r\n  click($event: LoadingBtnResponse) {\r\n    this.submit.emit($event)\r\n  }\r\n\r\n} \r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -588,7 +1351,7 @@
                         "deprecationMessage": ""
                     }
                 ],
-                "line": 30,
+                "line": 41,
                 "jsdoctags": [
                     {
                         "name": "element",
@@ -601,11 +1364,153 @@
                     }
                 ]
             },
-            "templateData": "<button color=\"primary\" [disabled]=\"busy || disabled\" (click)=\"click($event)\"\r\n        [ngClass]=\"additionalCssClass\"\r\n        mat-button\r\n        [attr.type]=\"buttonType\"\r\n        [color]=\"color\">\r\n  <ng-content></ng-content>\r\n</button>\r\n"
+            "accessors": {
+                "busy": {
+                    "name": "busy",
+                    "setSignature": {
+                        "name": "busy",
+                        "type": "void",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "args": [
+                            {
+                                "name": "value",
+                                "type": "BooleanInput",
+                                "deprecated": false,
+                                "deprecationMessage": ""
+                            }
+                        ],
+                        "returnType": "void",
+                        "line": 28,
+                        "jsdoctags": [
+                            {
+                                "name": "value",
+                                "type": "BooleanInput",
+                                "deprecated": false,
+                                "deprecationMessage": "",
+                                "tagName": {
+                                    "text": "param"
+                                }
+                            }
+                        ]
+                    },
+                    "getSignature": {
+                        "name": "busy",
+                        "type": "",
+                        "returnType": "",
+                        "line": 31
+                    }
+                },
+                "disabled": {
+                    "name": "disabled",
+                    "setSignature": {
+                        "name": "disabled",
+                        "type": "void",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "args": [
+                            {
+                                "name": "value",
+                                "type": "BooleanInput",
+                                "deprecated": false,
+                                "deprecationMessage": ""
+                            }
+                        ],
+                        "returnType": "void",
+                        "line": 33,
+                        "jsdoctags": [
+                            {
+                                "name": "value",
+                                "type": "BooleanInput",
+                                "deprecated": false,
+                                "deprecationMessage": "",
+                                "tagName": {
+                                    "text": "param"
+                                }
+                            }
+                        ]
+                    },
+                    "getSignature": {
+                        "name": "disabled",
+                        "type": "",
+                        "returnType": "",
+                        "line": 36
+                    }
+                }
+            },
+            "templateData": "<button [disabled]=\"busy || disabled\" (click)=\"click($event)\"\r\n        [ngClass]=\"additionalCssClass\"\r\n        mat-button\r\n        [attr.type]=\"buttonType\"\r\n        [color]=\"color\">\r\n  <ng-content></ng-content>\r\n</button>\r\n"
+        },
+        {
+            "name": "MatXtndLoadingMessageComponent",
+            "id": "component-MatXtndLoadingMessageComponent-349ccdeca0639d14e67f14e7a04f7337c5444dc5e40612c9ee4aef20493be1860f6f6356fdc6cc9b3e423467d2e8e0b81ee5832771233f94ff6cfc587a623943",
+            "file": "projects/mat-xtnd/src/lib/loading-message/loading-message.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "matxtnd-loading-message",
+            "styleUrls": [
+                "loading-message.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "loading-message.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "color",
+                    "defaultValue": "\"primary\"",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 11,
+                    "type": "ThemePalette",
+                    "decorators": []
+                },
+                {
+                    "name": "diameter",
+                    "defaultValue": "30",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 12,
+                    "type": "number",
+                    "decorators": []
+                },
+                {
+                    "name": "strokeWidth",
+                    "defaultValue": "2",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 13,
+                    "type": "number",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input, } from '@angular/core';\r\nimport { ThemePalette } from '@angular/material/core';\r\n\r\n@Component({\r\n  selector: 'matxtnd-loading-message',\r\n  templateUrl: 'loading-message.component.html',\r\n  styleUrls: [`loading-message.component.scss`]\r\n})\r\nexport class MatXtndLoadingMessageComponent {\r\n\r\n  @Input() color: ThemePalette = \"primary\";\r\n  @Input() diameter: number = 30;\r\n  @Input() strokeWidth: number = 2;\r\n\r\n} \r\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ":host {\r\n  display: flex;\r\n  flex-grow: 1;\r\n  justify-content: center;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  .matxtnd-loading-message-content{\r\n      padding:20px;\r\n  }\r\n}\r\n",
+                    "styleUrl": "loading-message.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "templateData": "<div class=\"matxtnd-loading-message-signal\">\r\n  <mat-progress-spinner mode=\"indeterminate\" [color]=\"color\" [diameter]=\"diameter\" [strokeWidth]=\"strokeWidth\"></mat-progress-spinner>\r\n</div>\r\n<div class=\"matxtnd-loading-message-content\">\r\n  <ng-content></ng-content>\r\n</div>\r\n"
         },
         {
             "name": "MatXtndReadyComponent",
-            "id": "component-MatXtndReadyComponent-00691b99b339ad95b2c6bec925a515c8e1c6c7e1d5c5f712bc999a83259db029b666b94b7261fdd316d49632d3d0c82f4b0d3cb3bace2d48c5d663f80398a747",
+            "id": "component-MatXtndReadyComponent-c94bc8e28336cadf1c6decd5675da8359dd4adc27f916f8d8b2418a90419c30d79fc8ae0511b7c9eba992d2d6674568c89327f86ec7fa62a263657a4616740a0",
             "file": "projects/mat-xtnd/src/lib/loading-button/ready/ready.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -651,7 +1556,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Host } from '@angular/core';\nimport { MatXtndLoadingButtonComponent } from '../loading-button.component';\r\n\n@Component({\n  selector: 'matxtnd-loading-button-ready',\n  templateUrl: 'ready.component.html',\n  styleUrls: [`ready.component.scss`]\n})\nexport class MatXtndReadyComponent {\n\n  constructor(@Host() public parentContext: MatXtndLoadingButtonComponent) { }\n\n} \n",
+            "sourceCode": "import { Component, Host } from '@angular/core';\r\nimport { MatXtndLoadingButtonComponent } from '../loading-button.component';\r\n\r\n@Component({\r\n  selector: 'matxtnd-loading-button-ready',\r\n  templateUrl: 'ready.component.html',\r\n  styleUrls: [`ready.component.scss`]\r\n})\r\nexport class MatXtndReadyComponent {\r\n\r\n  constructor(@Host() public parentContext: MatXtndLoadingButtonComponent) { }\r\n\r\n} \r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -689,64 +1594,170 @@
             "templateData": "<span class=\"ready-container\" *ngIf=\"!parentContext.busy\">\r\n  <ng-content></ng-content>\r\n</span>\r\n"
         },
         {
-            "name": "PageComponent",
-            "id": "component-PageComponent-7126d8c2607c946741c651482413b43feb72b2d63cac9d3ac173fde206a5e635eb4cdbf7ca7ac9327c7d4d05cf7ef619144c34c11609ad677081d0ee4e855064",
-            "file": "stories/page.component.ts",
+            "name": "MatXtndSnackbarSuccessComponent",
+            "id": "component-MatXtndSnackbarSuccessComponent-8c6a69fea30c4b5d67e14704630725303a78002679eaa5385fc3211c13a448d14d10ddf2bd030ae24c741ec288c244f85ea81867bfee867c22e4a89c1d761077",
+            "file": "projects/mat-xtnd/src/lib/snackbar-success/components/snackbar-success/snackbar-success.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
             "outputs": [],
             "providers": [],
-            "selector": "storybook-page",
+            "selector": "matxtnd-snackbar-success",
             "styleUrls": [
-                "./page.css"
+                "snackbar-success.component.scss"
             ],
             "styles": [],
-            "template": "<article>    <storybook-header\n      [user]=\"user\"\n      (onLogout)=\"doLogout()\"\n      (onLogin)=\"doLogin()\"\n      (onCreateAccount)=\"doCreateAccount()\"\n    ></storybook-header>\n    <section>\n      <h2>Pages in Storybook</h2>\n      <p>\n        We recommend building UIs with a\n        <a href=\"https://componentdriven.org\" target=\"_blank\" rel=\"noopener noreferrer\">\n          <strong>component-driven</strong>\n        </a>\n        process starting with atomic components and ending with pages.\n      </p>\n      <p>\n        Render pages with mock data. This makes it easy to build and review page states without\n        needing to navigate to them in your app. Here are some handy patterns for managing page data\n        in Storybook:\n      </p>\n      <ul>\n        <li>\n          Use a higher-level connected component. Storybook helps you compose such data from the\n          \"args\" of child component stories\n        </li>\n        <li>\n          Assemble data in the page component from your services. You can mock these services out\n          using Storybook.\n        </li>\n      </ul>\n      <p>\n        Get a guided tutorial on component-driven development at\n        <a href=\"https://storybook.js.org/tutorials/\" target=\"_blank\" rel=\"noopener noreferrer\">\n          Storybook tutorials\n        </a>\n        . Read more in the\n        <a href=\"https://storybook.js.org/docs\" target=\"_blank\" rel=\"noopener noreferrer\"> docs </a>\n        .\n      </p>\n      <div class=\"tip-wrapper\">\n        <span class=\"tip\">Tip</span> Adjust the width of the canvas with the\n        <svg width=\"10\" height=\"10\" viewBox=\"0 0 12 12\" xmlns=\"http://www.w3.org/2000/svg\">\n          <g fill=\"none\" fillRule=\"evenodd\">\n            <path\n              d=\"M1.5 5.2h4.8c.3 0 .5.2.5.4v5.1c-.1.2-.3.3-.4.3H1.4a.5.5 0 01-.5-.4V5.7c0-.3.2-.5.5-.5zm0-2.1h6.9c.3 0 .5.2.5.4v7a.5.5 0 01-1 0V4H1.5a.5.5 0 010-1zm0-2.1h9c.3 0 .5.2.5.4v9.1a.5.5 0 01-1 0V2H1.5a.5.5 0 010-1zm4.3 5.2H2V10h3.8V6.2z\"\n              id=\"a\"\n              fill=\"#999\"\n            />\n          </g>\n        </svg>\n        Viewports addon in the toolbar\n      </div>\n    </section>\n  </article>",
-            "templateUrl": [],
+            "templateUrl": [
+                "snackbar-success.component.html"
+            ],
             "viewProviders": [],
             "inputsClass": [],
             "outputsClass": [],
             "propertiesClass": [
                 {
-                    "name": "user",
-                    "defaultValue": "null",
+                    "name": "message",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "User | null",
+                    "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 64
+                    "line": 14
+                }
+            ],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component, Inject } from '@angular/core';\r\nimport { MAT_SNACK_BAR_DATA } from '@angular/material/snack-bar';\r\n\r\nexport type MatXtndSuccessSnackBarType = { message: string; }\r\n\r\n/** @dynamic */\r\n@Component({\r\n  selector: 'matxtnd-snackbar-success',\r\n  templateUrl: 'snackbar-success.component.html',\r\n  styleUrls: [`snackbar-success.component.scss`]\r\n})\r\nexport class MatXtndSnackbarSuccessComponent {\r\n\r\n  message: string;\r\n  constructor(@Inject(MAT_SNACK_BAR_DATA) private readonly data: MatXtndSuccessSnackBarType) {\r\n    this.message = data.message;\r\n  }\r\n\r\n} \r\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ":host {\r\n\r\n  .matxtnd-snackbar-success-container {\r\n    height: 25px;\r\n\r\n    .matxtnd-snackbar-success-signal {\r\n      display: inline-block;\r\n      position: absolute;\r\n      top: 16px;\r\n      left: 16px;\r\n    }\r\n\r\n    .matxtnd-snackbar-message {\r\n      padding: 10px;\r\n      position: absolute;\r\n      left: 50px;\r\n      top: 9px;\r\n      color: rgba(0,0,0,.7);\r\n    }\r\n  }\r\n}\r\n\r\n::ng-deep {\r\n  .matxtnd-snackbar-success-panel{\r\n      background-color:#fff;\r\n  }\r\n}\r\n",
+                    "styleUrl": "snackbar-success.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "data",
+                        "type": "MatXtndSuccessSnackBarType",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 14,
+                "jsdoctags": [
+                    {
+                        "name": "data",
+                        "type": "MatXtndSuccessSnackBarType",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "templateData": "<div class=\"matxtnd-snackbar-success-container\">\r\n  <span class=\"matxtnd-snackbar-success-signal\">\r\n    <matxtnd-swoosh-animation></matxtnd-swoosh-animation>\r\n  </span>\r\n  <span class=\"matxtnd-snackbar-message\" [innerHtml]=\"message\"></span>\r\n</div>\r\n"
+        },
+        {
+            "name": "MatXtndSwooshAnimationComponent",
+            "id": "component-MatXtndSwooshAnimationComponent-99469e24dca6ca89e2cb62632379728dd7cb17987baadfe2d419ca21a982352b6d967cf3ff10c08f98ac3e5e381af2765168dfe54d4ab1e9530e4d379d497c06",
+            "file": "projects/mat-xtnd/src/lib/snackbar-success/components/swoosh-animation/swoosh-animation.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "matxtnd-swoosh-animation",
+            "styleUrls": [
+                "swoosh-animation.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "swoosh-animation.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "color",
+                    "defaultValue": "this.matXtndThemeService.colors.primary",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 13,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "play-after",
+                    "defaultValue": "250",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 16,
+                    "type": "number",
+                    "decorators": []
+                },
+                {
+                    "name": "speed",
+                    "defaultValue": "3",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "number",
+                    "decorators": []
+                },
+                {
+                    "name": "width",
+                    "defaultValue": "35",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 15,
+                    "type": "number",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "canvas",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "HTMLCanvasElement | undefined",
+                    "optional": false,
+                    "description": "",
+                    "line": 11,
+                    "modifierKind": [
+                        121
+                    ]
                 }
             ],
             "methodsClass": [
                 {
-                    "name": "doCreateAccount",
+                    "name": "ngOnInit",
                     "args": [],
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 74,
+                    "line": 23,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
                 {
-                    "name": "doLogin",
+                    "name": "Play",
                     "args": [],
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 70,
-                    "deprecated": false,
-                    "deprecationMessage": ""
-                },
-                {
-                    "name": "doLogout",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 66,
+                    "line": 35,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -758,27 +1769,112 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\nimport { User } from './User';\n\n@Component({\n  selector: 'storybook-page',\n  template: `<article>\n    <storybook-header\n      [user]=\"user\"\n      (onLogout)=\"doLogout()\"\n      (onLogin)=\"doLogin()\"\n      (onCreateAccount)=\"doCreateAccount()\"\n    ></storybook-header>\n    <section>\n      <h2>Pages in Storybook</h2>\n      <p>\n        We recommend building UIs with a\n        <a href=\"https://componentdriven.org\" target=\"_blank\" rel=\"noopener noreferrer\">\n          <strong>component-driven</strong>\n        </a>\n        process starting with atomic components and ending with pages.\n      </p>\n      <p>\n        Render pages with mock data. This makes it easy to build and review page states without\n        needing to navigate to them in your app. Here are some handy patterns for managing page data\n        in Storybook:\n      </p>\n      <ul>\n        <li>\n          Use a higher-level connected component. Storybook helps you compose such data from the\n          \"args\" of child component stories\n        </li>\n        <li>\n          Assemble data in the page component from your services. You can mock these services out\n          using Storybook.\n        </li>\n      </ul>\n      <p>\n        Get a guided tutorial on component-driven development at\n        <a href=\"https://storybook.js.org/tutorials/\" target=\"_blank\" rel=\"noopener noreferrer\">\n          Storybook tutorials\n        </a>\n        . Read more in the\n        <a href=\"https://storybook.js.org/docs\" target=\"_blank\" rel=\"noopener noreferrer\"> docs </a>\n        .\n      </p>\n      <div class=\"tip-wrapper\">\n        <span class=\"tip\">Tip</span> Adjust the width of the canvas with the\n        <svg width=\"10\" height=\"10\" viewBox=\"0 0 12 12\" xmlns=\"http://www.w3.org/2000/svg\">\n          <g fill=\"none\" fillRule=\"evenodd\">\n            <path\n              d=\"M1.5 5.2h4.8c.3 0 .5.2.5.4v5.1c-.1.2-.3.3-.4.3H1.4a.5.5 0 01-.5-.4V5.7c0-.3.2-.5.5-.5zm0-2.1h6.9c.3 0 .5.2.5.4v7a.5.5 0 01-1 0V4H1.5a.5.5 0 010-1zm0-2.1h9c.3 0 .5.2.5.4v9.1a.5.5 0 01-1 0V2H1.5a.5.5 0 010-1zm4.3 5.2H2V10h3.8V6.2z\"\n              id=\"a\"\n              fill=\"#999\"\n            />\n          </g>\n        </svg>\n        Viewports addon in the toolbar\n      </div>\n    </section>\n  </article>`,\n  styleUrls: ['./page.css'],\n})\nexport default class PageComponent {\n  user: User | null = null;\n\n  doLogout() {\n    this.user = null;\n  }\n\n  doLogin() {\n    this.user = { name: 'Jane Doe' };\n  }\n\n  doCreateAccount() {\n    this.user = { name: 'Jane Doe' };\n  }\n}\n",
+            "sourceCode": "import { Component, OnInit, ElementRef, Input } from '@angular/core';\r\nimport { MatXtndThemeColorFinderService } from '../../../utils';\r\n\r\n@Component({\r\n  selector: 'matxtnd-swoosh-animation',\r\n  templateUrl: 'swoosh-animation.component.html',\r\n  styleUrls: [`swoosh-animation.component.scss`]\r\n})\r\nexport class MatXtndSwooshAnimationComponent implements OnInit {\r\n\r\n  private canvas: HTMLCanvasElement | undefined;\r\n\r\n  @Input() color: string = this.matXtndThemeService.colors.primary;\r\n  @Input() speed: number = 3;\r\n  @Input() width: number = 35;\r\n  @Input('play-after') playAfter: number = 250;\r\n\r\n  constructor(\r\n    private readonly element: ElementRef<HTMLElement>,\r\n    private readonly matXtndThemeService: MatXtndThemeColorFinderService\r\n  ) { }\r\n\r\n  ngOnInit() {\r\n    this.canvas = document.createElement('canvas');\r\n    const width = this.width;\r\n    const height = width * 3.2;\r\n    this.canvas.height = 160;\r\n    this.canvas.style.width = width + 'px';\r\n    const playAfter = this.playAfter || 2000;\r\n\r\n    this.element.nativeElement.appendChild(this.canvas);\r\n    setTimeout(this.Play.bind(this), playAfter);\r\n  }\r\n\r\n  Play() {\r\n    const color = (this.color || 'rgba(0, 150, 0, 1)');\r\n    const speed = (this.speed || 5)\r\n\r\n    let start = 100;\r\n    let mid = 145;\r\n    let end = 250;\r\n    let width = 20;\r\n    let leftX = start;\r\n    let leftY = start;\r\n    let rightX = mid - (width / 2.7);\r\n    let rightY = mid + (width / 2.7);\r\n    let animationSpeed = speed;\r\n\r\n    let ctx = this.canvas?.getContext('2d');\r\n    if (ctx) {\r\n      ctx.lineWidth = width;\r\n      ctx.strokeStyle = color;\r\n\r\n      for (let i = start; i < mid; i++) {\r\n        const drawLeft = window.setTimeout(function () {\r\n          if (ctx) {\r\n            ctx.beginPath();\r\n            ctx.moveTo(start, start);\r\n            ctx.lineTo(leftX, leftY);\r\n            ctx.stroke();\r\n          }\r\n          leftX++;\r\n          leftY++;\r\n        }, 1 + (i * animationSpeed) / 3);\r\n      }\r\n\r\n      for (let i = mid; i < end; i++) {\r\n        const drawRight = window.setTimeout(function () {\r\n          if (ctx) {\r\n            ctx.beginPath();\r\n            ctx.moveTo(leftX, leftY);\r\n            ctx.lineTo(rightX, rightY);\r\n            ctx.stroke();\r\n          }\r\n          rightX++;\r\n          rightY--;\r\n        }, 1 + (i * animationSpeed) / 3);\r\n      }\r\n    }\r\n  }\r\n\r\n\r\n\r\n\r\n} \r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "section {\n  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;\n  font-size: 14px;\n  line-height: 24px;\n  padding: 48px 20px;\n  margin: 0 auto;\n  max-width: 600px;\n  color: #333;\n}\n\nsection h2 {\n  font-weight: 900;\n  font-size: 32px;\n  line-height: 1;\n  margin: 0 0 4px;\n  display: inline-block;\n  vertical-align: top;\n}\n\nsection p {\n  margin: 1em 0;\n}\n\nsection a {\n  text-decoration: none;\n  color: #1ea7fd;\n}\n\nsection ul {\n  padding-left: 30px;\n  margin: 1em 0;\n}\n\nsection li {\n  margin-bottom: 8px;\n}\n\nsection .tip {\n  display: inline-block;\n  border-radius: 1em;\n  font-size: 11px;\n  line-height: 12px;\n  font-weight: 700;\n  background: #e7fdd8;\n  color: #66bf3c;\n  padding: 4px 12px;\n  margin-right: 10px;\n  vertical-align: top;\n}\n\nsection .tip-wrapper {\n  font-size: 13px;\n  line-height: 20px;\n  margin-top: 40px;\n  margin-bottom: 40px;\n}\n\nsection .tip-wrapper svg {\n  display: inline-block;\n  height: 12px;\n  width: 12px;\n  margin-right: 4px;\n  vertical-align: top;\n  margin-top: 3px;\n}\n\nsection .tip-wrapper svg path {\n  fill: #1ea7fd;\n}\n",
-                    "styleUrl": "./page.css"
+                    "data": "",
+                    "styleUrl": "swoosh-animation.component.scss"
                 }
             ],
-            "stylesData": ""
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "element",
+                        "type": "ElementRef<HTMLElement>",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "matXtndThemeService",
+                        "type": "MatXtndThemeColorFinderService",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 16,
+                "jsdoctags": [
+                    {
+                        "name": "element",
+                        "type": "ElementRef<HTMLElement>",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "matXtndThemeService",
+                        "type": "MatXtndThemeColorFinderService",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": ""
+        },
+        {
+            "name": "MatXtndThemeHelperComponent",
+            "id": "component-MatXtndThemeHelperComponent-eefb1f69a3a9ba5df8fb2f3ffeaca184291bbe7089ce5d2b9f4c40606087974e539a5594efba35acf8d54dc4d1beabb51cb5b0559e2fb36546770a131f213931",
+            "file": "projects/mat-xtnd/src/lib/utils/components/theme-helper/theme-helper.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "matxtnd-theme-helper",
+            "styleUrls": [
+                "theme-helper.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "theme-helper.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'matxtnd-theme-helper',\r\n  templateUrl: 'theme-helper.component.html',\r\n  styleUrls: [`theme-helper.component.scss`]\r\n})\r\nexport class MatXtndThemeHelperComponent {\r\n\r\n} \r\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ":host{\r\n    display:none;\r\n}\r\n",
+                    "styleUrl": "theme-helper.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "templateData": "<button mat-raised-button color=\"primary\">P</button>\r\n<button mat-raised-button color=\"accent\">A</button>\r\n<button mat-raised-button color=\"warn\">W</button>\r\n"
         }
     ],
     "modules": [
         {
             "name": "AppModule",
-            "id": "module-AppModule-7d5d9906906a6123b3ee92267e0d963ac7530500b6f140b920823f14daa128aecf4f84b1f10aec4fbaf6ae51e934aefc3ba8ff04ba834e25f39fc8c378b8a5b4",
+            "id": "module-AppModule-3b8353e5470df2cb92d5ab8a428afc462208d9b2a3d76d3437fafb72f8195c94f4d751ea3a2d12f315b6d1226191ba98a1a00fb1d2e4119c8efe043c742248f1",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/integration/src/app/app.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { BrowserModule } from '@angular/platform-browser';\n\nimport { AppComponent } from './app.component';\nimport { MatXtndModule } from 'mat-xtnd';\n\n@NgModule({\n  declarations: [\n    AppComponent\n  ],\n  imports: [\n    BrowserModule,\n    MatXtndModule\n  ],\n  providers: [],\n  bootstrap: [AppComponent]\n})\nexport class AppModule { }\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { BrowserModule } from '@angular/platform-browser';\r\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\r\nimport { MatXtndModule } from '../../../mat-xtnd/src/lib/mat-xtnd.module';\r\n\r\nimport { AppComponent } from './app.component';\r\n\r\n@NgModule({\r\n  declarations: [\r\n    AppComponent\r\n  ],\r\n  imports: [\r\n    BrowserAnimationsModule,\r\n    BrowserModule,\r\n    MatXtndModule\r\n  ],\r\n  providers: [],\r\n  bootstrap: [AppComponent]\r\n})\r\nexport class AppModule { }\r\n",
             "children": [
                 {
                     "type": "providers",
@@ -855,14 +1951,62 @@
             ]
         },
         {
+            "name": "MatXtnDialogsModule",
+            "id": "module-MatXtnDialogsModule-26cfe5d3e0f9d2a99108c0fc9ee1d64a1ce86b7b026a25b2ad3bd4334e63b535c01d0be237f12cb37216e9e1f089de98eb0d46dece165d60260945763e67db7d",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/mat-xtnd/src/lib/dialogs/dialogs.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport { MatDialogModule } from '@angular/material/dialog';\r\nimport { MatXtndConfirmationDialogComponent } from './components';\r\nimport { MatXtndConfirmationDialogService } from './services';\r\nimport { MatButtonModule } from '@angular/material/button';\r\n\r\n@NgModule({\r\n  imports: [\r\n    CommonModule,\r\n    MatButtonModule,\r\n    MatDialogModule\r\n  ],\r\n  declarations: [\r\n    MatXtndConfirmationDialogComponent\r\n  ],\r\n  exports: [\r\n    MatXtndConfirmationDialogComponent\r\n  ],\r\n  providers: [\r\n    MatXtndConfirmationDialogService\r\n  ],\r\n  entryComponents: [\r\n    MatXtndConfirmationDialogComponent\r\n  ]\r\n})\r\nexport class MatXtnDialogsModule {}\r\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": [
+                        {
+                            "name": "MatXtndConfirmationDialogService"
+                        }
+                    ]
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "MatXtndConfirmationDialogComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "MatXtndConfirmationDialogComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
             "name": "MatXtndModule",
-            "id": "module-MatXtndModule-8e9fa301434ed011577fe336ecfa91fa0fe39c436de2edac494b2eff808e793dadc32aab22f4f378b209b7c5f5891e7e3a0f1c9a2dad0945a8d3affebd714440",
+            "id": "module-MatXtndModule-32587190a8e2a8c4943ffa76aa27267d5f1bbefead45b16dc7e27cb3ab9c3f0ce1492aa69a653580ba89f12fc9bd6adc4eb6cc945c6d18898f5ff015daea83d5",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/mat-xtnd/src/lib/mat-xtnd.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { MatXtnLoadingButtonModule } from './loading-button';\n\n@NgModule({\n  imports: [\n    MatXtnLoadingButtonModule\n  ],\n  exports: [\n    MatXtnLoadingButtonModule\n  ]\n})\nexport class MatXtndModule { }\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { MatXtnDialogsModule } from './dialogs';\r\nimport { MatXtnLoadingButtonModule } from './loading-button';\r\nimport { MatXtnLoadingMessageModule } from './loading-message';\r\nimport { MatXtnSnackbarSuccessModule } from './snackbar-success';\r\nimport { MatXtnUtilsModule } from './utils';\r\n\r\n@NgModule({\r\n  imports: [\r\n    MatXtnLoadingButtonModule,\r\n    MatXtnLoadingMessageModule,\r\n    MatXtnDialogsModule,\r\n    MatXtnUtilsModule,\r\n    MatXtnSnackbarSuccessModule\r\n  ],\r\n  exports: [\r\n    MatXtnLoadingButtonModule,\r\n    MatXtnLoadingMessageModule,\r\n    MatXtnDialogsModule,\r\n    MatXtnUtilsModule,\r\n    MatXtnSnackbarSuccessModule\r\n  ]\r\n})\r\nexport class MatXtndModule { }\r\n",
             "children": [
                 {
                     "type": "providers",
@@ -876,7 +2020,19 @@
                     "type": "imports",
                     "elements": [
                         {
+                            "name": "MatXtnDialogsModule"
+                        },
+                        {
                             "name": "MatXtnLoadingButtonModule"
+                        },
+                        {
+                            "name": "MatXtnLoadingMessageModule"
+                        },
+                        {
+                            "name": "MatXtnSnackbarSuccessModule"
+                        },
+                        {
+                            "name": "MatXtnUtilsModule"
                         }
                     ]
                 },
@@ -884,7 +2040,19 @@
                     "type": "exports",
                     "elements": [
                         {
+                            "name": "MatXtnDialogsModule"
+                        },
+                        {
                             "name": "MatXtnLoadingButtonModule"
+                        },
+                        {
+                            "name": "MatXtnLoadingMessageModule"
+                        },
+                        {
+                            "name": "MatXtnSnackbarSuccessModule"
+                        },
+                        {
+                            "name": "MatXtnUtilsModule"
                         }
                     ]
                 },
@@ -953,6 +2121,162 @@
                     "elements": []
                 }
             ]
+        },
+        {
+            "name": "MatXtnLoadingMessageModule",
+            "id": "module-MatXtnLoadingMessageModule-35413d1e0ad760268d88bf18fb1972528e0250b8f5d8e857a07e338df9e64a4eee17455224f646df46ffcf800f43031eca1d371b0bae4e223d82c38ef595677b",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/mat-xtnd/src/lib/loading-message/loading-message.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from \"@angular/core\";\r\nimport { CommonModule } from \"@angular/common\";\r\nimport { MatProgressSpinnerModule } from '@angular/material/progress-spinner';\r\nimport { MatIconModule } from \"@angular/material/icon\";\r\nimport { MatXtndLoadingMessageComponent } from \"./loading-message.component\";\r\n\r\n@NgModule({\r\n  imports: [\r\n    CommonModule,\r\n    MatIconModule,\r\n    MatProgressSpinnerModule\r\n  ],\r\n  declarations: [\r\n    MatXtndLoadingMessageComponent\r\n  ],\r\n  exports: [\r\n    MatXtndLoadingMessageComponent\r\n  ]\r\n})\r\nexport class MatXtnLoadingMessageModule { }\r\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "MatXtndLoadingMessageComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "MatXtndLoadingMessageComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "MatXtnSnackbarSuccessModule",
+            "id": "module-MatXtnSnackbarSuccessModule-246c1c167ce7b99d11102a828d96efd6e6d68636dc3830cd9daead5d7c0c3e3f43950b162ae889a00268fd0b783c84175bd15c0c8058bb02f7ad46761d2a7bca",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/mat-xtnd/src/lib/snackbar-success/snackbar-succes.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport { MatSnackBarModule } from '@angular/material/snack-bar';\r\nimport { MatXtnUtilsModule } from '../utils';\r\nimport { MatXtndSnackbarSuccessComponent, MatXtndSwooshAnimationComponent } from './components';\r\nimport { MatXtndSnackbarSuccessService } from './services';\r\n\r\n@NgModule({\r\n  imports: [\r\n    CommonModule,\r\n    MatSnackBarModule,\r\n    MatXtnUtilsModule\r\n  ],\r\n  declarations: [\r\n    MatXtndSwooshAnimationComponent,\r\n    MatXtndSnackbarSuccessComponent\r\n  ],\r\n  exports: [\r\n    MatXtndSwooshAnimationComponent,\r\n    MatXtndSnackbarSuccessComponent\r\n  ],\r\n  providers: [\r\n    MatXtndSnackbarSuccessService\r\n  ],\r\n  entryComponents: [\r\n    MatXtndSwooshAnimationComponent,\r\n    MatXtndSnackbarSuccessComponent\r\n  ]\r\n})\r\nexport class MatXtnSnackbarSuccessModule {}\r\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": [
+                        {
+                            "name": "MatXtndSnackbarSuccessService"
+                        }
+                    ]
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "MatXtndSnackbarSuccessComponent"
+                        },
+                        {
+                            "name": "MatXtndSwooshAnimationComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "MatXtnUtilsModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "MatXtndSnackbarSuccessComponent"
+                        },
+                        {
+                            "name": "MatXtndSwooshAnimationComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "MatXtnUtilsModule",
+            "id": "module-MatXtnUtilsModule-96110afbac7478950621cb41da5004c5f5ca18add9a626bddd5de5caea9159be06b8527e9a787bdf41189ae0ee105fcf84600199e9ee2467a584972a40675106",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/mat-xtnd/src/lib/utils/utils.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport { MatButtonModule } from '@angular/material/button';\r\nimport { MatXtndThemeHelperComponent } from './components';\r\nimport { MatXtndCssInjectorService, MatXtndScriptInjectorService, MatXtndThemeColorFinderService } from './services';\r\n\r\n@NgModule({\r\n  imports: [\r\n    CommonModule,\r\n    MatButtonModule,\r\n  ],\r\n  declarations: [\r\n    MatXtndThemeHelperComponent\r\n  ],\r\n  exports: [\r\n    MatXtndThemeHelperComponent\r\n  ],\r\n  providers: [\r\n    MatXtndThemeColorFinderService,\r\n    MatXtndCssInjectorService,\r\n    MatXtndScriptInjectorService\r\n  ],\r\n  entryComponents: [\r\n    MatXtndThemeHelperComponent\r\n  ]\r\n})\r\nexport class MatXtnUtilsModule {\r\n  constructor(colorFinder: MatXtndThemeColorFinderService) {\r\n  }\r\n}\r\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": [
+                        {
+                            "name": "MatXtndCssInjectorService"
+                        },
+                        {
+                            "name": "MatXtndScriptInjectorService"
+                        },
+                        {
+                            "name": "MatXtndThemeColorFinderService"
+                        }
+                    ]
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "MatXtndThemeHelperComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "MatXtndThemeHelperComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
         }
     ],
     "miscellaneous": {
@@ -991,67 +2315,27 @@
                 "name": "environment",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/integration/src/environments/environment.prod.ts",
+                "file": "projects/integration/src/environments/environment.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "object",
-                "defaultValue": "{\n  production: true\n}"
+                "defaultValue": "{\r\n  production: false\r\n}"
             },
             {
                 "name": "environment",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/integration/src/environments/environment.ts",
+                "file": "projects/integration/src/environments/environment.prod.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "object",
-                "defaultValue": "{\n  production: false\n}"
+                "defaultValue": "{\r\n  production: true\r\n}"
             },
             {
                 "name": "Large",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "stories/Button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "LoggedIn",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "stories/Header.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "LoggedIn",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "stories/Page.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "LoggedOut",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "stories/Header.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "LoggedOut",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "stories/Page.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -1065,7 +2349,27 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "[]",
-                "defaultValue": "[\n  'mat-button',\n  'mat-raised-button',\n  'mat-icon-button',\n  'mat-fab',\n  'mat-mini-fab'\n]"
+                "defaultValue": "[\r\n  'mat-button',\r\n  'mat-raised-button',\r\n  'mat-icon-button',\r\n  'mat-fab',\r\n  'mat-mini-fab'\r\n]"
+            },
+            {
+                "name": "MatXtndConfirmationDialogActionTypes",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/mat-xtnd/src/lib/dialogs/components/confirmation-dialog/confirmation-dialog.component.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "MatXtndConfirmationDialogActionType",
+                "defaultValue": "{ OK: \"OK\", CANCEL: \"CANCEL\"}"
+            },
+            {
+                "name": "MatXtndConfirmationDialogButtonLabelsDefaults",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/mat-xtnd/src/lib/dialogs/components/confirmation-dialog/confirmation-dialog.component.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "string",
+                "defaultValue": "{ OK: \"Ok\", CANCEL: \"Cancel\" }"
             },
             {
                 "name": "Primary",
@@ -1123,27 +2427,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<Button>",
-                "defaultValue": "(args: Button) => ({\n  props: args,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "stories/Header.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<Header>",
-                "defaultValue": "(args: Header) => ({\n  props: args,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "stories/Page.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<Page>",
-                "defaultValue": "(args: Page) => ({\n  props: args,\n})"
+                "defaultValue": "(args: Button) => ({\r\n  props: args,\r\n})"
             }
         ],
         "functions": [],
@@ -1169,6 +2453,83 @@
                 "deprecationMessage": "",
                 "description": "",
                 "kind": 130
+            },
+            {
+                "name": "MatXtndConfirmationDialogActionType",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "\"OK\" | \"CANCEL\"",
+                "file": "projects/mat-xtnd/src/lib/dialogs/components/confirmation-dialog/confirmation-dialog.component.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 186
+            },
+            {
+                "name": "MatXtndConfirmationDialogButtonLabelsType",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "literal type",
+                "file": "projects/mat-xtnd/src/lib/dialogs/components/confirmation-dialog/confirmation-dialog.component.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 181
+            },
+            {
+                "name": "MatXtndConfirmationDialogParamsDataType",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "literal type",
+                "file": "projects/mat-xtnd/src/lib/dialogs/components/confirmation-dialog/confirmation-dialog.component.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 181
+            },
+            {
+                "name": "MatXtndConfirmationDialogParamsType",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "literal type",
+                "file": "projects/mat-xtnd/src/lib/dialogs/components/confirmation-dialog/confirmation-dialog.component.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 181
+            },
+            {
+                "name": "MatXtndMaterialColorType",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "\"primary\" | \"accent\" | \"warn\"",
+                "file": "projects/mat-xtnd/src/lib/utils/services/theme-color-finder.service.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 186
+            },
+            {
+                "name": "MatXtndMaterialColorValueType",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "",
+                "file": "projects/mat-xtnd/src/lib/utils/services/theme-color-finder.service.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 194
+            },
+            {
+                "name": "MatXtndSuccessSnackBarType",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "literal type",
+                "file": "projects/mat-xtnd/src/lib/snackbar-success/components/snackbar-success/snackbar-success.component.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 181
             }
         ],
         "enumerations": [],
@@ -1227,18 +2588,6 @@
                     "type": "literal type"
                 }
             ],
-            "projects/integration/src/environments/environment.prod.ts": [
-                {
-                    "name": "environment",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/integration/src/environments/environment.prod.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "object",
-                    "defaultValue": "{\n  production: true\n}"
-                }
-            ],
             "projects/integration/src/environments/environment.ts": [
                 {
                     "name": "environment",
@@ -1248,7 +2597,19 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "object",
-                    "defaultValue": "{\n  production: false\n}"
+                    "defaultValue": "{\r\n  production: false\r\n}"
+                }
+            ],
+            "projects/integration/src/environments/environment.prod.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/integration/src/environments/environment.prod.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\r\n  production: true\r\n}"
                 }
             ],
             "stories/Button.stories.ts": [
@@ -1300,71 +2661,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story<Button>",
-                    "defaultValue": "(args: Button) => ({\n  props: args,\n})"
-                }
-            ],
-            "stories/Header.stories.ts": [
-                {
-                    "name": "LoggedIn",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/Header.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "LoggedOut",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/Header.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/Header.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story<Header>",
-                    "defaultValue": "(args: Header) => ({\n  props: args,\n})"
-                }
-            ],
-            "stories/Page.stories.ts": [
-                {
-                    "name": "LoggedIn",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/Page.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "LoggedOut",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/Page.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/Page.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story<Page>",
-                    "defaultValue": "(args: Page) => ({\n  props: args,\n})"
+                    "defaultValue": "(args: Button) => ({\r\n  props: args,\r\n})"
                 }
             ],
             "projects/mat-xtnd/src/lib/loading-button/loading-button.component.ts": [
@@ -1376,7 +2673,29 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "[]",
-                    "defaultValue": "[\n  'mat-button',\n  'mat-raised-button',\n  'mat-icon-button',\n  'mat-fab',\n  'mat-mini-fab'\n]"
+                    "defaultValue": "[\r\n  'mat-button',\r\n  'mat-raised-button',\r\n  'mat-icon-button',\r\n  'mat-fab',\r\n  'mat-mini-fab'\r\n]"
+                }
+            ],
+            "projects/mat-xtnd/src/lib/dialogs/components/confirmation-dialog/confirmation-dialog.component.ts": [
+                {
+                    "name": "MatXtndConfirmationDialogActionTypes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/mat-xtnd/src/lib/dialogs/components/confirmation-dialog/confirmation-dialog.component.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "MatXtndConfirmationDialogActionType",
+                    "defaultValue": "{ OK: \"OK\", CANCEL: \"CANCEL\"}"
+                },
+                {
+                    "name": "MatXtndConfirmationDialogButtonLabelsDefaults",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/mat-xtnd/src/lib/dialogs/components/confirmation-dialog/confirmation-dialog.component.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "defaultValue": "{ OK: \"Ok\", CANCEL: \"Cancel\" }"
                 }
             ]
         },
@@ -1406,30 +2725,104 @@
                     "description": "",
                     "kind": 130
                 }
+            ],
+            "projects/mat-xtnd/src/lib/dialogs/components/confirmation-dialog/confirmation-dialog.component.ts": [
+                {
+                    "name": "MatXtndConfirmationDialogActionType",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "\"OK\" | \"CANCEL\"",
+                    "file": "projects/mat-xtnd/src/lib/dialogs/components/confirmation-dialog/confirmation-dialog.component.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 186
+                },
+                {
+                    "name": "MatXtndConfirmationDialogButtonLabelsType",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "literal type",
+                    "file": "projects/mat-xtnd/src/lib/dialogs/components/confirmation-dialog/confirmation-dialog.component.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 181
+                },
+                {
+                    "name": "MatXtndConfirmationDialogParamsDataType",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "literal type",
+                    "file": "projects/mat-xtnd/src/lib/dialogs/components/confirmation-dialog/confirmation-dialog.component.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 181
+                },
+                {
+                    "name": "MatXtndConfirmationDialogParamsType",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "literal type",
+                    "file": "projects/mat-xtnd/src/lib/dialogs/components/confirmation-dialog/confirmation-dialog.component.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 181
+                }
+            ],
+            "projects/mat-xtnd/src/lib/utils/services/theme-color-finder.service.ts": [
+                {
+                    "name": "MatXtndMaterialColorType",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "\"primary\" | \"accent\" | \"warn\"",
+                    "file": "projects/mat-xtnd/src/lib/utils/services/theme-color-finder.service.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 186
+                },
+                {
+                    "name": "MatXtndMaterialColorValueType",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "",
+                    "file": "projects/mat-xtnd/src/lib/utils/services/theme-color-finder.service.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 194
+                }
+            ],
+            "projects/mat-xtnd/src/lib/snackbar-success/components/snackbar-success/snackbar-success.component.ts": [
+                {
+                    "name": "MatXtndSuccessSnackBarType",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "literal type",
+                    "file": "projects/mat-xtnd/src/lib/snackbar-success/components/snackbar-success/snackbar-success.component.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 181
+                }
             ]
         }
     },
     "routes": [],
     "coverage": {
-        "count": 4,
+        "count": 7,
         "status": "low",
         "files": [
-            {
-                "filePath": "projects/integration/e2e/src/app.po.ts",
-                "type": "class",
-                "linktype": "classe",
-                "name": "AppPage",
-                "coveragePercent": 0,
-                "coverageCount": "0/3",
-                "status": "low"
-            },
             {
                 "filePath": "projects/integration/src/app/app.component.ts",
                 "type": "component",
                 "linktype": "component",
                 "name": "AppComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/2",
+                "coverageCount": "0/4",
                 "status": "low"
             },
             {
@@ -1473,6 +2866,44 @@
                 "status": "low"
             },
             {
+                "filePath": "projects/mat-xtnd/src/lib/dialogs/components/confirmation-dialog/confirmation-dialog.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "MatXtndConfirmationDialogComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/mat-xtnd/src/lib/dialogs/components/confirmation-dialog/confirmation-dialog.component.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "MatXtndConfirmationDialogActionTypes",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/mat-xtnd/src/lib/dialogs/components/confirmation-dialog/confirmation-dialog.component.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "MatXtndConfirmationDialogButtonLabelsDefaults",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/mat-xtnd/src/lib/dialogs/services/confirmation-dialog.service.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "MatXtndConfirmationDialogService",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
                 "filePath": "projects/mat-xtnd/src/lib/loading-button/busy/busy.component.ts",
                 "type": "component",
                 "linktype": "component",
@@ -1487,7 +2918,7 @@
                 "linktype": "component",
                 "name": "MatXtndLoadingButtonComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/9",
+                "coverageCount": "0/11",
                 "status": "low"
             },
             {
@@ -1507,6 +2938,78 @@
                 "name": "MatXtndReadyComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/mat-xtnd/src/lib/loading-message/loading-message.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "MatXtndLoadingMessageComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/mat-xtnd/src/lib/snackbar-success/components/snackbar-success/snackbar-success.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "MatXtndSnackbarSuccessComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/mat-xtnd/src/lib/snackbar-success/components/swoosh-animation/swoosh-animation.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "MatXtndSwooshAnimationComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/9",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/mat-xtnd/src/lib/snackbar-success/services/snackbar-success.service.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "MatXtndSnackbarSuccessService",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/mat-xtnd/src/lib/utils/components/theme-helper/theme-helper.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "MatXtndThemeHelperComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/mat-xtnd/src/lib/utils/services/css-injector.service.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "MatXtndCssInjectorService",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/mat-xtnd/src/lib/utils/services/script-injector.service.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "MatXtndScriptInjectorService",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/mat-xtnd/src/lib/utils/services/theme-color-finder.service.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "MatXtndThemeColorFinderService",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
                 "status": "low"
             },
             {
@@ -1580,66 +3083,6 @@
                 "status": "low"
             },
             {
-                "filePath": "stories/Header.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "LoggedIn",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "stories/Header.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "LoggedOut",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "stories/Header.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Template",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "stories/Page.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "LoggedIn",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "stories/Page.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "LoggedOut",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "stories/Page.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Template",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
                 "filePath": "stories/User.ts",
                 "type": "interface",
                 "linktype": "interface",
@@ -1662,18 +3105,18 @@
                 "type": "component",
                 "linktype": "component",
                 "name": "LoadingButtonComponent",
-                "coveragePercent": 50,
-                "coverageCount": "1/2",
-                "status": "medium"
+                "coveragePercent": 83,
+                "coverageCount": "5/6",
+                "status": "very-good"
             },
             {
-                "filePath": "stories/header.component.ts",
+                "filePath": "stories/examples/loading-message/loading-message.component.ts",
                 "type": "component",
                 "linktype": "component",
-                "name": "HeaderComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/5",
-                "status": "low"
+                "name": "LoadingMessageComponent",
+                "coveragePercent": 80,
+                "coverageCount": "4/5",
+                "status": "very-good"
             },
             {
                 "filePath": "stories/modules/material/material.module.ts",
@@ -1683,15 +3126,6 @@
                 "name": "components",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "stories/page.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "PageComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/5",
                 "status": "low"
             }
         ]

@@ -6,25 +6,21 @@ import { MatXtndSnackbarSuccessComponent, MatXtndSwooshAnimationComponent } from
 import { MatXtndSnackbarSuccessService } from './services';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    MatSnackBarModule,
-    MatXtnUtilsModule
-  ],
-  declarations: [
-    MatXtndSwooshAnimationComponent,
-    MatXtndSnackbarSuccessComponent
-  ],
-  exports: [
-    MatXtndSwooshAnimationComponent,
-    MatXtndSnackbarSuccessComponent
-  ],
-  providers: [
-    MatXtndSnackbarSuccessService
-  ],
-  entryComponents: [
-    MatXtndSwooshAnimationComponent,
-    MatXtndSnackbarSuccessComponent
-  ]
+    imports: [
+        CommonModule,
+        MatSnackBarModule,
+        MatXtnUtilsModule
+    ],
+    declarations: [
+        MatXtndSwooshAnimationComponent,
+        MatXtndSnackbarSuccessComponent
+    ],
+    exports: [
+        MatXtndSwooshAnimationComponent,
+        MatXtndSnackbarSuccessComponent
+    ],
+    providers: [
+        MatXtndSnackbarSuccessService
+    ]
 })
 export class MatXtnSnackbarSuccessModule {}

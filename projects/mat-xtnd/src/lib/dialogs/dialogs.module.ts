@@ -6,22 +6,19 @@ import { MatXtndConfirmationDialogService } from './services';
 import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    MatButtonModule,
-    MatDialogModule
-  ],
-  declarations: [
-    MatXtndConfirmationDialogComponent
-  ],
-  exports: [
-    MatXtndConfirmationDialogComponent
-  ],
-  providers: [
-    MatXtndConfirmationDialogService
-  ],
-  entryComponents: [
-    MatXtndConfirmationDialogComponent
-  ]
+    imports: [
+        CommonModule,
+        MatButtonModule,
+        MatDialogModule
+    ],
+    declarations: [
+        MatXtndConfirmationDialogComponent
+    ],
+    exports: [
+        MatXtndConfirmationDialogComponent
+    ],
+    providers: [
+        MatXtndConfirmationDialogService
+    ]
 })
 export class MatXtnDialogsModule {}

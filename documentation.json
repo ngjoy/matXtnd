@@ -1863,6 +1863,95 @@
             ],
             "stylesData": "",
             "templateData": "<button mat-raised-button color=\"primary\">P</button>\r\n<button mat-raised-button color=\"accent\">A</button>\r\n<button mat-raised-button color=\"warn\">W</button>\r\n"
+        },
+        {
+            "name": "SnackbarSuccessComponent",
+            "id": "component-SnackbarSuccessComponent-61150f803ca8536a34df32c9165d1b22c91e4c5e96fe1731431c9b9467e0e0371961598151d1b1a40a9f88e5fbab5094f957064bb026c327173855e7762aaf0a",
+            "file": "stories/examples/snackbar-success/snackbar-success.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "snackbar-success",
+            "styleUrls": [
+                "snackbar-success.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "snackbar-success.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "snackbarMessage",
+                    "defaultValue": "'Action Completed'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nLoading message\n",
+                    "description": "<p>Loading message</p>\n",
+                    "line": 14,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "do",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 18,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { MatXtndSnackbarSuccessService } from '@matxtnd'\n\n@Component({\n  selector: 'snackbar-success',\n  templateUrl: 'snackbar-success.component.html',\n  styleUrls: [`snackbar-success.component.scss`]\n})\nexport class SnackbarSuccessComponent {\n\n  /**\n  * Loading message\n  */\n  @Input() snackbarMessage: string = 'Action Completed';\n\n  constructor(private readonly snackbarSuccessService: MatXtndSnackbarSuccessService) { }\n\n  do() {\n    this.snackbarSuccessService.Open(this.snackbarMessage);\r\n  }\n\n\n} \n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "snackbar-success.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "snackbarSuccessService",
+                        "type": "MatXtndSnackbarSuccessService",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 14,
+                "jsdoctags": [
+                    {
+                        "name": "snackbarSuccessService",
+                        "type": "MatXtndSnackbarSuccessService",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "templateData": "\r\n<button mat-raised-button color=\"primary\" (click)=\"do()\">Display Success Snackbar</button>\r\n"
         }
     ],
     "modules": [
@@ -2315,21 +2404,21 @@
                 "name": "environment",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/integration/src/environments/environment.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "object",
-                "defaultValue": "{\r\n  production: false\r\n}"
-            },
-            {
-                "name": "environment",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/integration/src/environments/environment.prod.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "object",
                 "defaultValue": "{\r\n  production: true\r\n}"
+            },
+            {
+                "name": "environment",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/integration/src/environments/environment.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\r\n  production: false\r\n}"
             },
             {
                 "name": "Large",
@@ -2588,18 +2677,6 @@
                     "type": "literal type"
                 }
             ],
-            "projects/integration/src/environments/environment.ts": [
-                {
-                    "name": "environment",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/integration/src/environments/environment.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "object",
-                    "defaultValue": "{\r\n  production: false\r\n}"
-                }
-            ],
             "projects/integration/src/environments/environment.prod.ts": [
                 {
                     "name": "environment",
@@ -2610,6 +2687,18 @@
                     "deprecationMessage": "",
                     "type": "object",
                     "defaultValue": "{\r\n  production: true\r\n}"
+                }
+            ],
+            "projects/integration/src/environments/environment.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/integration/src/environments/environment.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\r\n  production: false\r\n}"
                 }
             ],
             "stories/Button.stories.ts": [
@@ -3117,6 +3206,15 @@
                 "coveragePercent": 80,
                 "coverageCount": "4/5",
                 "status": "very-good"
+            },
+            {
+                "filePath": "stories/examples/snackbar-success/snackbar-success.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "SnackbarSuccessComponent",
+                "coveragePercent": 25,
+                "coverageCount": "1/4",
+                "status": "low"
             },
             {
                 "filePath": "stories/modules/material/material.module.ts",

@@ -1,0 +1,55 @@
+import { Meta, Story, ArgsTable, Canvas  } from '@storybook/addon-docs';
+import { moduleMetadata } from '@storybook/angular';
+import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './modules/material/material.module';
+import { MatXtndModule } from '@matxtnd'
+import { SnackbarSuccessComponent } from './examples/snackbar-success/snackbar-success.component';
+
+<Meta title="Services/SnackBar Success" component={SnackbarSuccessComponent} decorators={[
+  moduleMetadata({
+    imports: [
+        CommonModule,
+        BrowserAnimationsModule,
+        MaterialModule,
+        MatXtndModule
+      ]
+  })
+]}
+parameters={{
+    viewMode: 'docs',
+    previewTabs: { 
+      canvas: { hidden: true } 
+     },
+  }}
+/>
+
+# Snackbar Success Message
+Display a Swoosh animation snackbar in order to represent a success status
+
+### Usage
+
+```typescript
+import { Component } from '@angular/core';
+import { MatXtndSnackbarSuccessService } from '@matxtnd'
+...
+@Component({ ... })
+...
+constructor(private readonly snackbarSuccessService: MatXtndSnackbarSuccessService) { }
+...
+this.snackbarSuccessService.Open('Some Success Message');
+...  
+
+```
+### Example
+
+export const Template = (args) => ({
+   props: args
+});
+
+<Story 
+  name="Default" args={{ }}>
+  {Template.bind({})}
+</Story>
+
+<ArgsTable story="." />

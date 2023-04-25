@@ -5,7 +5,7 @@ import { MaterialModule } from './modules/material/material.module';
 import { MatXtnLoadingButtonModule } from '@matxtnd'
 import { LoadingButtonComponent } from './examples/loading-button/loading-button.component';
 
-<Meta title="Components/LoadingButton" component={LoadingButtonComponent} decorators={[
+<Meta title="Components/Loading Button" component={LoadingButtonComponent} decorators={[
   moduleMetadata({
     imports: [
         CommonModule,
@@ -25,7 +25,7 @@ parameters={{
 # Loading button
 Button that provides the ability for theming and its loading state.
 
-### Usage
+### Basic Usage
 
 ```html
 <matxtnd-loading-button mat-raised-button [busy]="busy" color="primary" [disabled]="disabled" (submit)="onSubmit()">
@@ -48,4 +48,4 @@ export const Template = (args) => ({
   {Template.bind({})}
 </Story>
 
-<ArgsTable story="." />
+

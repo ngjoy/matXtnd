@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { MatXtndConfirmationDialogActionType, MatXtndConfirmationDialogActionTypes, MatXtndConfirmationDialogButtonLabelsDefaults, MatXtndConfirmationDialogComponent, MatXtndConfirmationDialogParamsType } from '../components';
+import { MatXtndConfirmationDialogActionType, MatXtndConfirmationDialogActionTypes, MatXtndConfirmationDialogButtonLabelsDefaults, MatXtndConfirmationDialogComponent, MatXtndConfirmationDialogOKButtonLabelsDefaults, MatXtndConfirmationDialogOkParamsType, MatXtndConfirmationDialogParamsType } from '../components';
 import { filter } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
@@ -17,10 +17,10 @@ export class MatXtndConfirmationDialogService {
     return dialogInstance.afterClosed().pipe(filter(x => !!x))
   }
 
-  OnOk(parms: MatXtndConfirmationDialogParamsType, config: MatDialogConfig<MatXtndConfirmationDialogComponent> = { width: '250px', disableClose: true }): Observable<void> {
+  OnOk(parms: MatXtndConfirmationDialogOkParamsType, config: MatDialogConfig<MatXtndConfirmationDialogComponent> = { width: '250px', disableClose: true }): Observable<void> {
     const dialogInstance = this.dialog.open(MatXtndConfirmationDialogComponent, {
       ...config,
-      data: { ...parms, buttonLabels: (parms.buttonLabels || MatXtndConfirmationDialogButtonLabelsDefaults) }
+      data: { ...parms, buttonLabels: (parms.buttonLabels || MatXtndConfirmationDialogOKButtonLabelsDefaults) }
     })
     return dialogInstance.afterClosed().pipe(filter(x => x === MatXtndConfirmationDialogActionTypes.OK))
   }

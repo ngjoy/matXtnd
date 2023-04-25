@@ -17,7 +17,7 @@
     "injectables": [
         {
             "name": "MatXtndConfirmationDialogService",
-            "id": "injectable-MatXtndConfirmationDialogService-a0dd6215e9bb28e2abe4a576cb9853089a0d99f9d82da635fefbde8e8155837a19b263b9ce6dfef837ed3155c207fa6f652d9a3fe4d5719983eaa14be07c2aee",
+            "id": "injectable-MatXtndConfirmationDialogService-f418cff1496b1845317296dfcd02cfb2e6dbeeb838bd28af1f6de687c2c6b6f19dbf9f71578f89ba79dcc84783d0b16f5eb3bdd5b7a99f31942d3c261733f6dd",
             "file": "projects/mat-xtnd/src/lib/dialogs/services/confirmation-dialog.service.ts",
             "properties": [],
             "methods": [
@@ -26,7 +26,7 @@
                     "args": [
                         {
                             "name": "parms",
-                            "type": "MatXtndConfirmationDialogParamsType",
+                            "type": "MatXtndConfirmationDialogOkParamsType",
                             "deprecated": false,
                             "deprecationMessage": ""
                         },
@@ -47,7 +47,7 @@
                     "jsdoctags": [
                         {
                             "name": "parms",
-                            "type": "MatXtndConfirmationDialogParamsType",
+                            "type": "MatXtndConfirmationDialogOkParamsType",
                             "deprecated": false,
                             "deprecationMessage": "",
                             "tagName": {
@@ -116,7 +116,7 @@
             "deprecationMessage": "",
             "description": "",
             "rawdescription": "\n",
-            "sourceCode": "import { Injectable } from '@angular/core';\r\nimport { MatDialog, MatDialogConfig } from '@angular/material/dialog';\r\nimport { MatXtndConfirmationDialogActionType, MatXtndConfirmationDialogActionTypes, MatXtndConfirmationDialogButtonLabelsDefaults, MatXtndConfirmationDialogComponent, MatXtndConfirmationDialogParamsType } from '../components';\r\nimport { filter } from 'rxjs/operators';\r\nimport { Observable } from 'rxjs';\r\n\r\n@Injectable()\r\nexport class MatXtndConfirmationDialogService {\r\n\r\n  constructor(private readonly dialog: MatDialog) { }\r\n\r\n  OnOkOrCancel(parms: MatXtndConfirmationDialogParamsType, config: MatDialogConfig<MatXtndConfirmationDialogComponent> = { width: '250px', disableClose: true }): Observable<MatXtndConfirmationDialogActionType> {\r\n    const dialogInstance = this.dialog.open(MatXtndConfirmationDialogComponent, {\r\n      ...config,\r\n      data: { ...parms, buttonLabels: (parms.buttonLabels || MatXtndConfirmationDialogButtonLabelsDefaults)}\r\n    })\r\n    return dialogInstance.afterClosed().pipe(filter(x => !!x))\r\n  }\r\n\r\n  OnOk(parms: MatXtndConfirmationDialogParamsType, config: MatDialogConfig<MatXtndConfirmationDialogComponent> = { width: '250px', disableClose: true }): Observable<void> {\r\n    const dialogInstance = this.dialog.open(MatXtndConfirmationDialogComponent, {\r\n      ...config,\r\n      data: { ...parms, buttonLabels: (parms.buttonLabels || MatXtndConfirmationDialogButtonLabelsDefaults) }\r\n    })\r\n    return dialogInstance.afterClosed().pipe(filter(x => x === MatXtndConfirmationDialogActionTypes.OK))\r\n  }\r\n\r\n}\r\n",
+            "sourceCode": "import { Injectable } from '@angular/core';\r\nimport { MatDialog, MatDialogConfig } from '@angular/material/dialog';\r\nimport { MatXtndConfirmationDialogActionType, MatXtndConfirmationDialogActionTypes, MatXtndConfirmationDialogButtonLabelsDefaults, MatXtndConfirmationDialogComponent, MatXtndConfirmationDialogOKButtonLabelsDefaults, MatXtndConfirmationDialogOkParamsType, MatXtndConfirmationDialogParamsType } from '../components';\r\nimport { filter } from 'rxjs/operators';\r\nimport { Observable } from 'rxjs';\r\n\r\n@Injectable()\r\nexport class MatXtndConfirmationDialogService {\r\n\r\n  constructor(private readonly dialog: MatDialog) { }\r\n\r\n  OnOkOrCancel(parms: MatXtndConfirmationDialogParamsType, config: MatDialogConfig<MatXtndConfirmationDialogComponent> = { width: '250px', disableClose: true }): Observable<MatXtndConfirmationDialogActionType> {\r\n    const dialogInstance = this.dialog.open(MatXtndConfirmationDialogComponent, {\r\n      ...config,\r\n      data: { ...parms, buttonLabels: (parms.buttonLabels || MatXtndConfirmationDialogButtonLabelsDefaults)}\r\n    })\r\n    return dialogInstance.afterClosed().pipe(filter(x => !!x))\r\n  }\r\n\r\n  OnOk(parms: MatXtndConfirmationDialogOkParamsType, config: MatDialogConfig<MatXtndConfirmationDialogComponent> = { width: '250px', disableClose: true }): Observable<void> {\r\n    const dialogInstance = this.dialog.open(MatXtndConfirmationDialogComponent, {\r\n      ...config,\r\n      data: { ...parms, buttonLabels: (parms.buttonLabels || MatXtndConfirmationDialogOKButtonLabelsDefaults) }\r\n    })\r\n    return dialogInstance.afterClosed().pipe(filter(x => x === MatXtndConfirmationDialogActionTypes.OK))\r\n  }\r\n\r\n}\r\n",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
@@ -576,7 +576,7 @@
     "components": [
         {
             "name": "AppComponent",
-            "id": "component-AppComponent-874ae6db9ebd1ea89db5f7f0c816e2cf6ff553a5f0cc6c567eff9ad012c04a4eb22893b254ae233188e35e9abae56e987231381646b45b2886e4542a33e9afb0",
+            "id": "component-AppComponent-109220fc7497ab7842c952951bfa0e2d57d097208f6fddde35f6ed1e1df74dbb61a1cbbdf4a91ae77ccfaa48608928a10c848c79409430261ce848102acbb429",
             "file": "projects/integration/src/app/app.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -603,17 +603,27 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 10
+                    "line": 11
                 }
             ],
             "methodsClass": [
+                {
+                    "name": "confirm",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 21,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
                 {
                     "name": "successSnackbar",
                     "args": [],
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 13,
+                    "line": 17,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -625,7 +635,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\r\nimport { MatXtndSnackbarSuccessService } from '../../../mat-xtnd/src/lib/snackbar-success';\r\n\r\n@Component({\r\n  selector: 'app-root',\r\n  templateUrl: './app.component.html',\r\n  styleUrls: ['./app.component.scss']\r\n})\r\nexport class AppComponent {\r\n  title = 'integration';\r\n  constructor(private readonly snackbarSuccessStatus: MatXtndSnackbarSuccessService) { }\r\n\r\n  successSnackbar() {\r\n    this.snackbarSuccessStatus.Open('Activity Completed');\r\n  }\r\n}\r\n",
+            "sourceCode": "import { Component } from '@angular/core';\r\nimport { MatXtndConfirmationDialogService } from '../../../mat-xtnd/src/lib/dialogs/services/confirmation-dialog.service';\r\nimport { MatXtndSnackbarSuccessService } from '../../../mat-xtnd/src/lib/snackbar-success';\r\n\r\n@Component({\r\n  selector: 'app-root',\r\n  templateUrl: './app.component.html',\r\n  styleUrls: ['./app.component.scss']\r\n})\r\nexport class AppComponent {\r\n  title = 'integration';\r\n  constructor(\r\n    private readonly snackbarSuccessStatus: MatXtndSnackbarSuccessService,\r\n    private readonly confirmationDialog: MatXtndConfirmationDialogService,\r\n  ) { }\r\n\r\n  successSnackbar() {\r\n    this.snackbarSuccessStatus.Open('Activity Completed');\r\n  }\r\n\r\n  confirm() {\r\n    this.confirmationDialog.OnOkOrCancel({ title: 'Confirm', message: 'Are you sure you want to do this?' })\r\n      .subscribe(response => console.log(response));      ;\r\n  }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -645,9 +655,15 @@
                         "type": "MatXtndSnackbarSuccessService",
                         "deprecated": false,
                         "deprecationMessage": ""
+                    },
+                    {
+                        "name": "confirmationDialog",
+                        "type": "MatXtndConfirmationDialogService",
+                        "deprecated": false,
+                        "deprecationMessage": ""
                     }
                 ],
-                "line": 10,
+                "line": 11,
                 "jsdoctags": [
                     {
                         "name": "snackbarSuccessStatus",
@@ -657,107 +673,76 @@
                         "tagName": {
                             "text": "param"
                         }
+                    },
+                    {
+                        "name": "confirmationDialog",
+                        "type": "MatXtndConfirmationDialogService",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
                     }
                 ]
             },
-            "templateData": "\r\n<matxtnd-loading-button mat-raised-button [busy]=\"true\">\r\n  <matxtnd-loading-button-ready>\r\n    Update\r\n  </matxtnd-loading-button-ready>\r\n  <matxtnd-loading-button-busy>\r\n    Updating...\r\n  </matxtnd-loading-button-busy>\r\n</matxtnd-loading-button>\r\n\r\n\r\n<matxtnd-loading-message>\r\n  Loading...\r\n</matxtnd-loading-message>\r\n\r\n<matxtnd-swoosh-animation></matxtnd-swoosh-animation>\r\n\r\n<button mat-button color=\"primary\" (click)=\"successSnackbar()\">Display Success SnackBar</button>\r\n"
+            "templateData": "\r\n<!--<matxtnd-loading-button mat-raised-button [busy]=\"true\">\r\n  <matxtnd-loading-button-ready>\r\n    Update\r\n  </matxtnd-loading-button-ready>\r\n  <matxtnd-loading-button-busy>\r\n    Updating...\r\n  </matxtnd-loading-button-busy>\r\n</matxtnd-loading-button>\r\n\r\n\r\n<matxtnd-loading-message>\r\n  Loading...\r\n</matxtnd-loading-message>\r\n\r\n<matxtnd-swoosh-animation></matxtnd-swoosh-animation>\r\n\r\n<button mat-button color=\"primary\" (click)=\"successSnackbar()\">Display Success SnackBar</button>\r\n\r\n<button mat-button color=\"primary\" (click)=\"confirm()\">Display Dialog</button>-->\r\n"
         },
         {
-            "name": "ButtonComponent",
-            "id": "component-ButtonComponent-8ceaf520f96e5437b08eeda244d84efb29effe62ddca4fc38eaa229085c2a1126c5715e61445bae741505aca1e4d377b350cb05fadd1dc45d9b2bbf7527029f1",
-            "file": "stories/button.component.ts",
+            "name": "DialogsComponent",
+            "id": "component-DialogsComponent-d5e008cb2ca7709adc0eef2c89af3405f2f2d1ca6430d73048b65e1342fad9383bbdbcfa168c9da3ad3196e151013168f8d405c8af93e4b85571cddf61b79ae6",
+            "file": "stories/examples/dialogs/dialogs.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
             "outputs": [],
             "providers": [],
-            "selector": "storybook-button",
+            "selector": "dialogs",
             "styleUrls": [
-                "./button.css"
+                "dialogs.component.scss"
             ],
             "styles": [],
-            "template": "<button   type=\"button\"\n   (click)=\"onClick.emit($event)\"\n   [ngClass]=\"classes\"\n   [ngStyle]=\"{ 'background-color': backgroundColor }\"\n >\n   {{ label }}\n </button>",
-            "templateUrl": [],
+            "templateUrl": [
+                "dialogs.component.html"
+            ],
             "viewProviders": [],
             "inputsClass": [
                 {
-                    "name": "backgroundColor",
+                    "name": "message",
+                    "defaultValue": "`\n    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.\n  `",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "rawdescription": "\n\nWhat background color to use\n",
-                    "description": "<p>What background color to use</p>\n",
-                    "line": 26,
+                    "rawdescription": "\n\nOk message\n",
+                    "description": "<p>Ok message</p>\n",
+                    "line": 19,
                     "type": "string",
                     "decorators": []
                 },
                 {
-                    "name": "label",
-                    "defaultValue": "'Button'",
+                    "name": "title",
+                    "defaultValue": "'Heading'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "jsdoctags": [
-                        {
-                            "pos": 747,
-                            "end": 761,
-                            "flags": 4227072,
-                            "modifierFlagsCache": 0,
-                            "transformFlags": 0,
-                            "kind": 325,
-                            "tagName": {
-                                "pos": 748,
-                                "end": 756,
-                                "flags": 4227072,
-                                "modifierFlagsCache": 0,
-                                "transformFlags": 0,
-                                "kind": 79,
-                                "escapedText": "required"
-                            },
-                            "comment": ""
-                        }
-                    ],
-                    "rawdescription": "\n\nButton contents\n\n",
-                    "description": "<p>Button contents</p>\n",
-                    "line": 40,
+                    "rawdescription": "\n\nOk message\n",
+                    "description": "<p>Ok message</p>\n",
+                    "line": 14,
                     "type": "string",
                     "decorators": []
-                },
-                {
-                    "name": "primary",
-                    "defaultValue": "false",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "rawdescription": "\n\nIs this the principal call to action on the page?\n",
-                    "description": "<p>Is this the principal call to action on the page?</p>\n",
-                    "line": 20,
-                    "type": "boolean",
-                    "decorators": []
-                },
-                {
-                    "name": "size",
-                    "defaultValue": "'medium'",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "rawdescription": "\n\nHow large should the button be?\n",
-                    "description": "<p>How large should the button be?</p>\n",
-                    "line": 32,
-                    "type": "\"small\" | \"medium\" | \"large\"",
-                    "decorators": []
                 }
             ],
-            "outputsClass": [
-                {
-                    "name": "onClick",
-                    "defaultValue": "new EventEmitter<Event>()",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "rawdescription": "\n\nOptional click handler\n",
-                    "description": "<p>Optional click handler</p>\n",
-                    "line": 46,
-                    "type": "EventEmitter"
-                }
-            ],
+            "outputsClass": [],
             "propertiesClass": [],
-            "methodsClass": [],
+            "methodsClass": [
+                {
+                    "name": "openDialog",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 25,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
@@ -765,26 +750,42 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'storybook-button',\r\n  template: ` <button\r\n    type=\"button\"\r\n    (click)=\"onClick.emit($event)\"\r\n    [ngClass]=\"classes\"\r\n    [ngStyle]=\"{ 'background-color': backgroundColor }\"\r\n  >\r\n    {{ label }}\r\n  </button>`,\r\n  styleUrls: ['./button.css'],\r\n})\r\nexport default class ButtonComponent {\r\n  /**\r\n   * Is this the principal call to action on the page?\r\n   */\r\n  @Input()\r\n  primary = false;\r\n\r\n  /**\r\n   * What background color to use\r\n   */\r\n  @Input()\r\n  backgroundColor?: string;\r\n\r\n  /**\r\n   * How large should the button be?\r\n   */\r\n  @Input()\r\n  size: 'small' | 'medium' | 'large' = 'medium';\r\n\r\n  /**\r\n   * Button contents\r\n   *\r\n   * @required\r\n   */\r\n  @Input()\r\n  label = 'Button';\r\n\r\n  /**\r\n   * Optional click handler\r\n   */\r\n  @Output()\r\n  onClick = new EventEmitter<Event>();\r\n\r\n  public get classes(): string[] {\r\n    const mode = this.primary ? 'storybook-button--primary' : 'storybook-button--secondary';\r\n\r\n    return ['storybook-button', `storybook-button--${this.size}`, mode];\r\n  }\r\n}\r\n",
+            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { MatXtndConfirmationDialogService } from '@matxtnd'\r\n\n@Component({\n  selector: 'dialogs',\n  templateUrl: 'dialogs.component.html',\n  styleUrls: [`dialogs.component.scss`]\n})\nexport class DialogsComponent {\n\n  /**\n * Ok message\n */\n  @Input() title: string = 'Heading';\n\n  /**\n   * Ok message\n   */\n  @Input() message: string = `\n    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.\n  `;\n\n  constructor(private readonly confirmationDialog: MatXtndConfirmationDialogService) { }\n\n  openDialog() {\n    this.confirmationDialog.OnOkOrCancel({ title: this.title,  message: this.message });\r\n\r\n  }\n  \n} \n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".storybook-button {\r\n  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;\r\n  font-weight: 700;\r\n  border: 0;\r\n  border-radius: 3em;\r\n  cursor: pointer;\r\n  display: inline-block;\r\n  line-height: 1;\r\n}\r\n.storybook-button--primary {\r\n  color: white;\r\n  background-color: #1ea7fd;\r\n}\r\n.storybook-button--secondary {\r\n  color: #333;\r\n  background-color: transparent;\r\n  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;\r\n}\r\n.storybook-button--small {\r\n  font-size: 12px;\r\n  padding: 10px 16px;\r\n}\r\n.storybook-button--medium {\r\n  font-size: 14px;\r\n  padding: 11px 20px;\r\n}\r\n.storybook-button--large {\r\n  font-size: 16px;\r\n  padding: 12px 24px;\r\n}\r\n",
-                    "styleUrl": "./button.css"
+                    "data": "",
+                    "styleUrl": "dialogs.component.scss"
                 }
             ],
             "stylesData": "",
-            "accessors": {
-                "classes": {
-                    "name": "classes",
-                    "getSignature": {
-                        "name": "classes",
-                        "type": "[]",
-                        "returnType": "string[]",
-                        "line": 48
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "confirmationDialog",
+                        "type": "MatXtndConfirmationDialogService",
+                        "deprecated": false,
+                        "deprecationMessage": ""
                     }
-                }
-            }
+                ],
+                "line": 21,
+                "jsdoctags": [
+                    {
+                        "name": "confirmationDialog",
+                        "type": "MatXtndConfirmationDialogService",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "templateData": "\r\n<button mat-raised-button color=\"primary\" (click)=\"openDialog()\">Open dialog</button>\r\n"
         },
         {
             "name": "LoadingButtonComponent",
@@ -1054,7 +1055,7 @@
         },
         {
             "name": "MatXtndConfirmationDialogComponent",
-            "id": "component-MatXtndConfirmationDialogComponent-32e2eec62700a965d84895d9e775f4f98974609d02b6929a402ebdfecad7050e320b0417e55e0f3b1a61cf8336ff81aa2e5992484ca347ea41f8dc8510fa280a",
+            "id": "component-MatXtndConfirmationDialogComponent-dcd748cd75c7dcd69d9db6970e031dc2100a43cd24ad6f0665e918ea458a1d064b70e4351aa10d2dc3dbe3e37c75c1fdbdd3ac1d48aa9ed9f227ec8f880235a5",
             "file": "projects/mat-xtnd/src/lib/dialogs/components/confirmation-dialog/confirmation-dialog.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1080,7 +1081,7 @@
                     "type": "MatXtndConfirmationDialogParamsDataType",
                     "optional": false,
                     "description": "",
-                    "line": 22,
+                    "line": 28,
                     "decorators": [
                         {
                             "name": "Inject",
@@ -1100,7 +1101,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 31,
+                    "line": 37,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -1110,7 +1111,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 25,
+                    "line": 31,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -1122,7 +1123,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, Inject, NgZone } from '@angular/core';\r\nimport { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';\r\n\r\nexport type MatXtndConfirmationDialogActionType = \"OK\" | \"CANCEL\";\r\nexport const MatXtndConfirmationDialogActionTypes: { [key in MatXtndConfirmationDialogActionType]: MatXtndConfirmationDialogActionType } = { OK: \"OK\", CANCEL: \"CANCEL\"}\r\nexport const MatXtndConfirmationDialogButtonLabelsDefaults: { [key in MatXtndConfirmationDialogActionType]: string } = { OK: \"Ok\", CANCEL: \"Cancel\" }\r\nexport type MatXtndConfirmationDialogButtonLabelsType = { OK: string, CANCEL: string}\r\nexport type MatXtndConfirmationDialogParamsType = { title?: string, message: string, buttonLabels?: MatXtndConfirmationDialogButtonLabelsType }\r\nexport type MatXtndConfirmationDialogParamsDataType = { title?: string, message: string, buttonLabels: MatXtndConfirmationDialogButtonLabelsType }\r\n\r\n/** @dynamic */\r\n@Component({\r\n  selector: 'matxtnd-confirmation-dialog',\r\n  templateUrl: 'confirmation-dialog.component.html',\r\n  styleUrls: [`confirmation-dialog.component.scss`]\r\n})\r\nexport class MatXtndConfirmationDialogComponent {\r\n\r\n  constructor(\r\n    private readonly ngZone: NgZone,\r\n    private readonly matDialogRef: MatDialogRef<MatXtndConfirmationDialogComponent>,\r\n    @Inject(MAT_DIALOG_DATA) public readonly data: MatXtndConfirmationDialogParamsDataType,\r\n  ) { }\r\n\r\n  ok() {\r\n    this.ngZone.run(() => {\r\n      this.matDialogRef.close(MatXtndConfirmationDialogActionTypes.OK);\r\n    });\r\n  }\r\n\r\n  cancel() {\r\n    this.ngZone.run(() => {\r\n      this.matDialogRef.close(MatXtndConfirmationDialogActionTypes.CANCEL);\r\n    });\r\n  }\r\n\r\n} \r\n\r\n\r\n\r\n",
+            "sourceCode": "import { Component, Inject, NgZone } from '@angular/core';\r\nimport { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';\r\n\r\nexport type MatXtndConfirmationDialogActionType = \"OK\" | \"CANCEL\";\r\nexport const MatXtndConfirmationDialogActionTypes: { [key in MatXtndConfirmationDialogActionType]: MatXtndConfirmationDialogActionType } = { OK: \"OK\", CANCEL: \"CANCEL\"}\r\nexport const MatXtndConfirmationDialogButtonLabelsDefaults: { [key in MatXtndConfirmationDialogActionType]: string } = { OK: \"Ok\", CANCEL: \"Cancel\" }\r\nexport type MatXtndConfirmationDialogButtonLabelsType = { OK: string, CANCEL: string }\r\n\r\nexport type MatXtndConfirmationDialogParamsType = { title?: string, message: string, buttonLabels?: MatXtndConfirmationDialogButtonLabelsType }\r\nexport type MatXtndConfirmationDialogParamsDataType = { title?: string, message: string, buttonLabels: MatXtndConfirmationDialogButtonLabelsType }\r\n\r\nexport const MatXtndConfirmationDialogOKButtonLabelsDefaults = { OK: \"Ok\" }\r\nexport type MatXtndConfirmationDialogOkButtonLabelsType = { OK: string }\r\nexport type MatXtndConfirmationDialogOkParamsType = { title?: string, message: string, buttonLabels?: MatXtndConfirmationDialogOkButtonLabelsType }\r\n\r\n\r\n/** @dynamic */\r\n@Component({\r\n  selector: 'matxtnd-confirmation-dialog',\r\n  templateUrl: 'confirmation-dialog.component.html',\r\n  styleUrls: [`confirmation-dialog.component.scss`]\r\n})\r\nexport class MatXtndConfirmationDialogComponent {\r\n\r\n  constructor(\r\n    private readonly ngZone: NgZone,\r\n    private readonly matDialogRef: MatDialogRef<MatXtndConfirmationDialogComponent>,\r\n    @Inject(MAT_DIALOG_DATA) public readonly data: MatXtndConfirmationDialogParamsDataType,\r\n  ) { }\r\n\r\n  ok() {\r\n    this.ngZone.run(() => {\r\n      this.matDialogRef.close(MatXtndConfirmationDialogActionTypes.OK);\r\n    });\r\n  }\r\n\r\n  cancel() {\r\n    this.ngZone.run(() => {\r\n      this.matDialogRef.close(MatXtndConfirmationDialogActionTypes.CANCEL);\r\n    });\r\n  }\r\n\r\n} \r\n\r\n\r\n\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -1156,7 +1157,7 @@
                         "deprecationMessage": ""
                     }
                 ],
-                "line": 17,
+                "line": 23,
                 "jsdoctags": [
                     {
                         "name": "ngZone",
@@ -1187,7 +1188,7 @@
                     }
                 ]
             },
-            "templateData": "<ng-container *ngIf=\"data.title\">\r\n  <h1 mat-dialog-title class=\"\">{{data.title}}</h1>\r\n</ng-container>\r\n<div mat-dialog-content class=\"\">\r\n  {{data.message}}\r\n</div>\r\n<div mat-dialog-actions class=\"matxtnd-confirmation-dialog-actions\">\r\n  <button mat-raised-button color=\"primary\" (click)=\"ok()\" cdkFocusInitial>{{data.buttonLabels.OK}}</button>\r\n  <button mat-raised-button (click)=\"cancel()\">{{data.buttonLabels.CANCEL}}</button>\r\n</div>\r\n"
+            "templateData": "<ng-container *ngIf=\"data.title\">\r\n  <h1 mat-dialog-title class=\"\">{{data.title}}</h1>\r\n</ng-container>\r\n<div mat-dialog-content class=\"\">\r\n  {{data.message}}\r\n</div>\r\n<div mat-dialog-actions class=\"matxtnd-confirmation-dialog-actions\">\r\n  <button mat-raised-button color=\"primary\" (click)=\"ok()\" cdkFocusInitial>{{data.buttonLabels.OK}}</button>\r\n  <ng-container *ngIf=\"!!data.buttonLabels.CANCEL\">\r\n    <button mat-raised-button (click)=\"cancel()\">{{data.buttonLabels.CANCEL}}</button>\r\n  </ng-container>\r\n</div>\r\n"
         },
         {
             "name": "MatXtndLoadingButtonComponent",
@@ -2041,13 +2042,13 @@
         },
         {
             "name": "MatXtnDialogsModule",
-            "id": "module-MatXtnDialogsModule-26cfe5d3e0f9d2a99108c0fc9ee1d64a1ce86b7b026a25b2ad3bd4334e63b535c01d0be237f12cb37216e9e1f089de98eb0d46dece165d60260945763e67db7d",
+            "id": "module-MatXtnDialogsModule-72979ac569832d373e4bf12a24b6d13c37132dbed128c9542de5564d86258936f7622d56b34b934348561f6db75dd7203f619e720b91f4e05a03b0af60846bef",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/mat-xtnd/src/lib/dialogs/dialogs.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport { MatDialogModule } from '@angular/material/dialog';\r\nimport { MatXtndConfirmationDialogComponent } from './components';\r\nimport { MatXtndConfirmationDialogService } from './services';\r\nimport { MatButtonModule } from '@angular/material/button';\r\n\r\n@NgModule({\r\n  imports: [\r\n    CommonModule,\r\n    MatButtonModule,\r\n    MatDialogModule\r\n  ],\r\n  declarations: [\r\n    MatXtndConfirmationDialogComponent\r\n  ],\r\n  exports: [\r\n    MatXtndConfirmationDialogComponent\r\n  ],\r\n  providers: [\r\n    MatXtndConfirmationDialogService\r\n  ],\r\n  entryComponents: [\r\n    MatXtndConfirmationDialogComponent\r\n  ]\r\n})\r\nexport class MatXtnDialogsModule {}\r\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport { MatDialogModule } from '@angular/material/dialog';\r\nimport { MatXtndConfirmationDialogComponent } from './components';\r\nimport { MatXtndConfirmationDialogService } from './services';\r\nimport { MatButtonModule } from '@angular/material/button';\r\n\r\n@NgModule({\r\n    imports: [\r\n        CommonModule,\r\n        MatButtonModule,\r\n        MatDialogModule\r\n    ],\r\n    declarations: [\r\n        MatXtndConfirmationDialogComponent\r\n    ],\r\n    exports: [\r\n        MatXtndConfirmationDialogComponent\r\n    ],\r\n    providers: [\r\n        MatXtndConfirmationDialogService\r\n    ]\r\n})\r\nexport class MatXtnDialogsModule {}\r\n",
             "children": [
                 {
                     "type": "providers",
@@ -2257,13 +2258,13 @@
         },
         {
             "name": "MatXtnSnackbarSuccessModule",
-            "id": "module-MatXtnSnackbarSuccessModule-246c1c167ce7b99d11102a828d96efd6e6d68636dc3830cd9daead5d7c0c3e3f43950b162ae889a00268fd0b783c84175bd15c0c8058bb02f7ad46761d2a7bca",
+            "id": "module-MatXtnSnackbarSuccessModule-5c230db97e37a054386863a1ec1f73549f48c989d6315581a3c82eda5f2ebd112ddc851fe91641112faeadc49ff6cc8f0cb13b7548e8b77fea72a029a66fb6ae",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/mat-xtnd/src/lib/snackbar-success/snackbar-succes.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport { MatSnackBarModule } from '@angular/material/snack-bar';\r\nimport { MatXtnUtilsModule } from '../utils';\r\nimport { MatXtndSnackbarSuccessComponent, MatXtndSwooshAnimationComponent } from './components';\r\nimport { MatXtndSnackbarSuccessService } from './services';\r\n\r\n@NgModule({\r\n  imports: [\r\n    CommonModule,\r\n    MatSnackBarModule,\r\n    MatXtnUtilsModule\r\n  ],\r\n  declarations: [\r\n    MatXtndSwooshAnimationComponent,\r\n    MatXtndSnackbarSuccessComponent\r\n  ],\r\n  exports: [\r\n    MatXtndSwooshAnimationComponent,\r\n    MatXtndSnackbarSuccessComponent\r\n  ],\r\n  providers: [\r\n    MatXtndSnackbarSuccessService\r\n  ],\r\n  entryComponents: [\r\n    MatXtndSwooshAnimationComponent,\r\n    MatXtndSnackbarSuccessComponent\r\n  ]\r\n})\r\nexport class MatXtnSnackbarSuccessModule {}\r\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport { MatSnackBarModule } from '@angular/material/snack-bar';\r\nimport { MatXtnUtilsModule } from '../utils';\r\nimport { MatXtndSnackbarSuccessComponent, MatXtndSwooshAnimationComponent } from './components';\r\nimport { MatXtndSnackbarSuccessService } from './services';\r\n\r\n@NgModule({\r\n    imports: [\r\n        CommonModule,\r\n        MatSnackBarModule,\r\n        MatXtnUtilsModule\r\n    ],\r\n    declarations: [\r\n        MatXtndSwooshAnimationComponent,\r\n        MatXtndSnackbarSuccessComponent\r\n    ],\r\n    exports: [\r\n        MatXtndSwooshAnimationComponent,\r\n        MatXtndSnackbarSuccessComponent\r\n    ],\r\n    providers: [\r\n        MatXtndSnackbarSuccessService\r\n    ]\r\n})\r\nexport class MatXtnSnackbarSuccessModule {}\r\n",
             "children": [
                 {
                     "type": "providers",
@@ -2315,13 +2316,13 @@
         },
         {
             "name": "MatXtnUtilsModule",
-            "id": "module-MatXtnUtilsModule-96110afbac7478950621cb41da5004c5f5ca18add9a626bddd5de5caea9159be06b8527e9a787bdf41189ae0ee105fcf84600199e9ee2467a584972a40675106",
+            "id": "module-MatXtnUtilsModule-f562751e7f3b9647949af8091ba0bc9f15530d501d591e63a76f565dc7c316ec9656ed0beaadfe46fa64ebac26cea861af7f571fc6b5a9c91a351bb1dd042575",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/mat-xtnd/src/lib/utils/utils.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport { MatButtonModule } from '@angular/material/button';\r\nimport { MatXtndThemeHelperComponent } from './components';\r\nimport { MatXtndCssInjectorService, MatXtndScriptInjectorService, MatXtndThemeColorFinderService } from './services';\r\n\r\n@NgModule({\r\n  imports: [\r\n    CommonModule,\r\n    MatButtonModule,\r\n  ],\r\n  declarations: [\r\n    MatXtndThemeHelperComponent\r\n  ],\r\n  exports: [\r\n    MatXtndThemeHelperComponent\r\n  ],\r\n  providers: [\r\n    MatXtndThemeColorFinderService,\r\n    MatXtndCssInjectorService,\r\n    MatXtndScriptInjectorService\r\n  ],\r\n  entryComponents: [\r\n    MatXtndThemeHelperComponent\r\n  ]\r\n})\r\nexport class MatXtnUtilsModule {\r\n  constructor(colorFinder: MatXtndThemeColorFinderService) {\r\n  }\r\n}\r\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport { MatButtonModule } from '@angular/material/button';\r\nimport { MatXtndThemeHelperComponent } from './components';\r\nimport { MatXtndCssInjectorService, MatXtndScriptInjectorService, MatXtndThemeColorFinderService } from './services';\r\n\r\n@NgModule({\r\n    imports: [\r\n        CommonModule,\r\n        MatButtonModule,\r\n    ],\r\n    declarations: [\r\n        MatXtndThemeHelperComponent\r\n    ],\r\n    exports: [\r\n        MatXtndThemeHelperComponent\r\n    ],\r\n    providers: [\r\n        MatXtndThemeColorFinderService,\r\n        MatXtndCssInjectorService,\r\n        MatXtndScriptInjectorService\r\n    ]\r\n})\r\nexport class MatXtnUtilsModule {\r\n  constructor(colorFinder: MatXtndThemeColorFinderService) {\r\n  }\r\n}\r\n",
             "children": [
                 {
                     "type": "providers",
@@ -2421,16 +2422,6 @@
                 "defaultValue": "{\r\n  production: false\r\n}"
             },
             {
-                "name": "Large",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "stories/Button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
                 "name": "materialButtonAttrs",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -2461,14 +2452,14 @@
                 "defaultValue": "{ OK: \"Ok\", CANCEL: \"Cancel\" }"
             },
             {
-                "name": "Primary",
+                "name": "MatXtndConfirmationDialogOKButtonLabelsDefaults",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "stories/Button.stories.ts",
+                "file": "projects/mat-xtnd/src/lib/dialogs/components/confirmation-dialog/confirmation-dialog.component.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
+                "type": "object",
+                "defaultValue": "{ OK: \"Ok\" }"
             },
             {
                 "name": "require",
@@ -2487,36 +2478,6 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "literal type"
-            },
-            {
-                "name": "Secondary",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "stories/Button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Small",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "stories/Button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "stories/Button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<Button>",
-                "defaultValue": "(args: Button) => ({\r\n  props: args,\r\n})"
             }
         ],
         "functions": [],
@@ -2556,6 +2517,28 @@
             },
             {
                 "name": "MatXtndConfirmationDialogButtonLabelsType",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "literal type",
+                "file": "projects/mat-xtnd/src/lib/dialogs/components/confirmation-dialog/confirmation-dialog.component.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 181
+            },
+            {
+                "name": "MatXtndConfirmationDialogOkButtonLabelsType",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "literal type",
+                "file": "projects/mat-xtnd/src/lib/dialogs/components/confirmation-dialog/confirmation-dialog.component.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 181
+            },
+            {
+                "name": "MatXtndConfirmationDialogOkParamsType",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
                 "rawtype": "literal type",
@@ -2701,58 +2684,6 @@
                     "defaultValue": "{\r\n  production: false\r\n}"
                 }
             ],
-            "stories/Button.stories.ts": [
-                {
-                    "name": "Large",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/Button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Primary",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/Button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Secondary",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/Button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Small",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/Button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/Button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story<Button>",
-                    "defaultValue": "(args: Button) => ({\r\n  props: args,\r\n})"
-                }
-            ],
             "projects/mat-xtnd/src/lib/loading-button/loading-button.component.ts": [
                 {
                     "name": "materialButtonAttrs",
@@ -2785,6 +2716,16 @@
                     "deprecationMessage": "",
                     "type": "string",
                     "defaultValue": "{ OK: \"Ok\", CANCEL: \"Cancel\" }"
+                },
+                {
+                    "name": "MatXtndConfirmationDialogOKButtonLabelsDefaults",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/mat-xtnd/src/lib/dialogs/components/confirmation-dialog/confirmation-dialog.component.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{ OK: \"Ok\" }"
                 }
             ]
         },
@@ -2829,6 +2770,28 @@
                 },
                 {
                     "name": "MatXtndConfirmationDialogButtonLabelsType",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "literal type",
+                    "file": "projects/mat-xtnd/src/lib/dialogs/components/confirmation-dialog/confirmation-dialog.component.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 181
+                },
+                {
+                    "name": "MatXtndConfirmationDialogOkButtonLabelsType",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "literal type",
+                    "file": "projects/mat-xtnd/src/lib/dialogs/components/confirmation-dialog/confirmation-dialog.component.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 181
+                },
+                {
+                    "name": "MatXtndConfirmationDialogOkParamsType",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
                     "rawtype": "literal type",
@@ -2911,7 +2874,7 @@
                 "linktype": "component",
                 "name": "AppComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/4",
+                "coverageCount": "0/5",
                 "status": "low"
             },
             {
@@ -2979,6 +2942,16 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "MatXtndConfirmationDialogButtonLabelsDefaults",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/mat-xtnd/src/lib/dialogs/components/confirmation-dialog/confirmation-dialog.component.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "MatXtndConfirmationDialogOKButtonLabelsDefaults",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -3122,56 +3095,6 @@
                 "status": "low"
             },
             {
-                "filePath": "stories/Button.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Large",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "stories/Button.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Primary",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "stories/Button.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Secondary",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "stories/Button.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Small",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "stories/Button.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Template",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
                 "filePath": "stories/User.ts",
                 "type": "interface",
                 "linktype": "interface",
@@ -3181,13 +3104,13 @@
                 "status": "low"
             },
             {
-                "filePath": "stories/button.component.ts",
+                "filePath": "stories/examples/dialogs/dialogs.component.ts",
                 "type": "component",
                 "linktype": "component",
-                "name": "ButtonComponent",
-                "coveragePercent": 83,
-                "coverageCount": "5/6",
-                "status": "very-good"
+                "name": "DialogsComponent",
+                "coveragePercent": 40,
+                "coverageCount": "2/5",
+                "status": "medium"
             },
             {
                 "filePath": "stories/examples/loading-button/loading-button.component.ts",

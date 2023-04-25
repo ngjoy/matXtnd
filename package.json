@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "build-lib": "ng build mat-xtnd",
     "test-lib": "ng test mat-xtnd --no-watch --no-progress --browsers=ChromeHeadlessCI",
-    "build-lib-prod": "ng build mat-xtnd",
+    "build-lib-prod": "ng build mat-xtnd --configuration production",
     "docs:json": "compodoc -p ./tsconfig.json -e json -d .",
     "storybook": "ng run integration:storybook",
     "build-storybook": "ng run integration:build-storybook",

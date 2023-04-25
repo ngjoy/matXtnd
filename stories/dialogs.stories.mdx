@@ -1,0 +1,97 @@
+import { Meta, Story, ArgsTable, Canvas  } from '@storybook/addon-docs';
+import { moduleMetadata } from '@storybook/angular';
+import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './modules/material/material.module';
+import { MatXtndModule } from '@matxtnd'
+import { DialogsComponent } from './examples/dialogs/dialogs.component';
+
+<Meta title="Services/Dialogs" component={DialogsComponent} decorators={[
+  moduleMetadata({
+    imports: [
+        CommonModule,
+        BrowserAnimationsModule,
+        MaterialModule,
+        MatXtndModule
+      ]
+  })
+]}
+parameters={{
+    viewMode: 'docs',
+    previewTabs: { 
+      canvas: { hidden: true } 
+     }
+  }}
+
+  argTypes={{
+
+      mode: {
+        control: false,
+        table: { disable: true, },
+      },
+
+    }}
+
+
+/>
+
+# Confirmation Dialog Service
+<p>
+This service provides the ability to display a confirmation dialog. The dialog can be used to notify the user of an event or to confirm an action. The dialog is displayed using the Angular Material dialog component.
+</p>
+### Usage
+
+```typescript
+import { Component } from '@angular/core';
+import { MatXtndConfirmationDialogService } from '@ngjoy/mat-xtnd';
+...
+@Component({ ... })
+...
+constructor(private readonly confirmationDialog: MatXtndConfirmationDialogService) { }
+...
+this.confirmationDialog.OnOk({ title: this.title,  message: this.message });
+...  
+
+```
+
+#### Stream Usage
+
+```typescript
+
+constructor(private readonly confirmationDialog: MatXtndConfirmationDialogService) { }
+...
+doSomethingUponConfirmation(item: TItem) {
+  this.confirmationDialog.OnOkOrCancel({ title: this.title,  message: this.message })
+    .pipe(
+        filter((result) => result === MatXtndConfirmationDialogActionTypes.OK),
+        mergeMap(() =>{
+          // continue with the action or API call
+        })
+    
+    ).subscribe();
+}
+...  
+
+```
+
+
+### Example
+
+export const Template = (args) => ({
+   props: args
+});
+
+<Story 
+  name="Notify" args={{ mode: 'Notify' }} >
+  {Template.bind({})}
+</Story>
+
+<br />
+
+ <Story 
+  name="Confirm" args={{ mode: 'Confirm' }}  >
+  {Template.bind({})}
+</Story>
+
+
+

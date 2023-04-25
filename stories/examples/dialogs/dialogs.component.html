@@ -1,0 +1,12 @@
+
+
+
+<div [ngSwitch]="mode">
+  <ng-container *ngSwitchCase="DIALOG_SERVICE_MODE_TYPES.Notify">
+    <button mat-raised-button color="primary" (click)="onNotify()">Open dialog</button>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="DIALOG_SERVICE_MODE_TYPES.Confirm">
+    <button mat-raised-button color="primary" (click)="onConfirm()">Open Confirmation</button>
+  </ng-container>
+</div>

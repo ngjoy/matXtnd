@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { MatXtndChipsModule } from './chips';
 import { MatXtnDialogsModule } from './dialogs';
 import { MatXtnLoadingButtonModule } from './loading-button';
 import { MatXtnLoadingMessageModule } from './loading-message';
@@ -7,18 +8,20 @@ import { MatXtnUtilsModule } from './utils';
 
 @NgModule({
   imports: [
+    MatXtndChipsModule,
+    MatXtnDialogsModule,
     MatXtnLoadingButtonModule,
     MatXtnLoadingMessageModule,
-    MatXtnDialogsModule,
+    MatXtnSnackbarSuccessModule,
     MatXtnUtilsModule,
-    MatXtnSnackbarSuccessModule
   ],
   exports: [
+    MatXtndChipsModule,
+    MatXtnDialogsModule,
     MatXtnLoadingButtonModule,
     MatXtnLoadingMessageModule,
-    MatXtnDialogsModule,
+    MatXtnSnackbarSuccessModule,
     MatXtnUtilsModule,
-    MatXtnSnackbarSuccessModule
   ]
 })
 export class MatXtndModule { }

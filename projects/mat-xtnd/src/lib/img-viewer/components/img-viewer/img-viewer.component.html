@@ -1,0 +1,27 @@
+<div class="mat-xtnd-img-viewer">
+  <header>
+    <ng-container *ngIf="data.displayName">
+      <span class="file-name">{{fileName}}</span>
+    </ng-container>
+    <span class="fill-space"></span>
+    <ng-container *ngIf="data.displayZoonInControls">
+      <button mat-mini-fab color="primary" class="close-action" aria-label="close" (click)="applyZoom(0.5)">
+        <mat-icon>zoom_in</mat-icon>
+      </button>
+      <button mat-mini-fab color="primary" class="close-action" aria-label="close" (click)="applyZoom(-0.5)">
+        <mat-icon>zoom_out</mat-icon>
+      </button>
+    </ng-container>
+    <button mat-mini-fab color="primary" class="close-action" aria-label="close" (click)="close()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </header>
+  <section>
+    <ng-container *ngIf="loading; else done">
+      <mat-spinner strokeWidth="5"></mat-spinner>
+    </ng-container>
+    <ng-template #done>
+      <img [style.transform]="'scale(' + zoom + ')'" #img [src]="data.src">
+    </ng-template>
+  </section>
+</div>

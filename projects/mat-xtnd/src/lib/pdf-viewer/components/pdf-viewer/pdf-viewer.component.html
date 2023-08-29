@@ -1,0 +1,15 @@
+<header>
+  <ng-container *ngIf="data.template">
+    <ng-container *ngTemplateOutlet="data.template"></ng-container>
+  </ng-container>
+  <span class="fill-space"></span>
+  <button mat-mini-fab color="primary" class="close-action" aria-label="close" (click)="close()">
+    <mat-icon>close</mat-icon>
+  </button>
+</header>
+<section>
+  <ng-container *ngIf="loading">
+    <mat-spinner strokeWidth="5"></mat-spinner>
+  </ng-container>
+  <iframe [frameBorder]="0" [src]="safeSourceUrl" #frame [class.hidden]="loading"></iframe>
+</section>

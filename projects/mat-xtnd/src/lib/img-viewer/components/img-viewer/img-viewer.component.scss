@@ -1,0 +1,59 @@
+:host {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  z-index: 9;
+
+  .file-name {
+    background: #eee;
+    padding: 5px 20px;
+    border-radius: 20px;
+    font-size: 0.83em;
+  }
+
+  .fill-space {
+    flex: 1 1 auto;
+  }
+
+  .mat-xtnd-img-viewer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
+  header {
+    display: flex;
+    padding: 8px 16px;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9;
+
+    h5 {
+      background: #eee;
+      padding: 5px 20px;
+      border-radius: 20px;
+      margin: 0;
+    }
+
+    button {
+      margin-left: 5px;
+      scale: 0.8;
+    }
+  }
+
+  section {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+}
